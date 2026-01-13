@@ -15,7 +15,7 @@ spec:
         - $values/common-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: ""
+      path: "$values/cluster/bootstrap/cilium-values.yaml"
       ref: values
   destination:
     server: "https://kubernetes.default.svc"

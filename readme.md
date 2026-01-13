@@ -10,13 +10,14 @@
 - We will use hostpath for database clusters, setting three nodes for scheduling the clusters. You need to install a proper database-ready shared storage to replace this (rookCeph?) but in a homeLab environment having both database cluster replicas and storage replicas would be too much of a bottleneck. Rook Ceph is there just for an example. You can also use NFS, but be aware of the settings to make it database-ready, as some of them do not support NFS or need specific settings.
 - ...
 
-```
+```markdown
 Talos-Kubernetes-Homelab
 └── cluster
     ├── bootstrap
     |   ├── control-panel.yaml
     |   ├── hostname.yaml
     |   ├── worker.yaml
+    |   ├── worker-database.yaml
     |   ├── worker-gpu.yaml
     |   ├── cilium-argocd-chart.yaml
     |   └── cilium-values.yaml

@@ -1,0 +1,63 @@
+machine:
+  network:
+# For setting a custom hostname, DO NOT use the following (deprecated), but use the hostname.yaml patch instead
+#    hostname: talos
+    nameservers:
+      - 10.0.0.1
+    interfaces:
+      - interface: eth0
+        addresses:
+          - 10.0.0.201/8
+# For control plane nodes, uncomment the following lines to set a VIP
+#        vip:
+#          ip: 192.168.0.15
+# For setting the MTU, uncomment the following line
+#        mtu: 8765
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 10.0.0.1
+# For disabling an interface, uncomment the following lines
+#      - interface: eth1
+#        ignore: true
+# For configuring extra kubelet arguments, uncomment the following lines
+  kubelet:
+    extraArgs:
+# For enabling automatic rotation of server certificates (needed for metrics server), uncomment the following line
+      rotate-server-certificates: true
+# For enabling Dynamic Resource Allocation, uncomment the following line
+#      feature-gates: DynamicResourceAllocation=true
+
+cluster:
+  network:
+    cni:
+      name: none
+  proxy:
+    disabled: true
+  extraManifests:
+    - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/main/deploy/standalone-install.yaml
+# For installing the metrics server, uncomment the following line
+#    - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+# For installing the metrics server in HA, uncomment the following line
+    - https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/high-availability.yaml
+  apiServer:
+    extraArgs:
+# For enabling Dynamic Resource Allocation, uncomment the following line
+#      feature-gates: DynamicResourceAllocation=true
+# For enabling aggregator routing (needed for Metrics Server HA)
+      enable-aggregator-routing: true
+  controllerManager:
+    extraArgs:
+# For enabling Dynamic Resource Allocation, uncomment the following line
+#      feature-gates: DynamicResourceAllocation=true
+# For allowing the controllerManager to bind to all interfaces, uncomment the following line (needed for Kube Prometheus Stack)
+      bind-address: 0.0.0.0
+  scheduler:
+    extraArgs:
+# For enabling Dynamic Resource Allocation, uncomment the following line
+#      feature-gates: DynamicResourceAllocation=true
+# For allowing the scheduler to bind to all interfaces, uncomment the following line (needed for Kube Prometheus Stack)
+      bind-address: 0.0.0.0
+  etcd:
+    extraArgs:
+# For setting the etcd metrics listen address to all interfaces, uncomment the following line
+      listen-metrics-urls: http://0.0.0.0:2381

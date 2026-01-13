@@ -1,0 +1,40 @@
+machine:
+  network:
+# For setting a custom hostname, DO NOT use the following (deprecated), but use the hostname.yaml patch instead
+#    hostname: talos
+    nameservers:
+      - 10.0.0.1
+    interfaces:
+      - interface: eth0
+        addresses:
+          - 10.0.0.201/8
+# For control plane nodes, uncomment the following lines to set a VIP
+#        vip:
+#          ip: 192.168.0.15
+# For setting the MTU, uncomment the following line
+#        mtu: 8765
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 10.0.0.1
+# For disabling an interface, uncomment the following lines
+#      - interface: eth1
+#        ignore: true
+# For configuring kernel modules and sysctls, uncomment the following lines (needed for GPU support)
+  kernel:
+    modules:
+      - name: nvidia
+      - name: nvidia_uvm
+      - name: nvidia_drm
+      - name: nvidia_modeset
+  sysctls:
+    net.core.bpf_jit_harden: 1
+# For configuring extra kubelet arguments, uncomment the following lines
+  kubelet:
+    extraArgs:
+# For enabling automatic rotation of server certificates (needed for metrics server), uncomment the following line
+      rotate-server-certificates: true
+# For enabling Dynamic Resource Allocation, uncomment the following line
+#      feature-gates: DynamicResourceAllocation=true
+# For setting custom node labels, uncomment and modify the following lines
+#  nodeLabels:
+#    database: "true"

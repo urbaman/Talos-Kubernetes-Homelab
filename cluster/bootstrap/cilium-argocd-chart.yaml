@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cilium-cni
+  namespace: argocd
+spec:
+  project: cilium-cni
+  sources:
+    - repoURL: https://helm.cilium.io/
+      chart: cilium
+      targetRevision: 1.18.5
+      helm:
+        releaseName: cilium
+        valueFiles:
+        - $values/common-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: ""
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system

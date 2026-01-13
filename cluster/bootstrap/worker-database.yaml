@@ -37,4 +37,4 @@ machine:
 #      feature-gates: DynamicResourceAllocation=true
 # For setting custom node labels, uncomment and modify the following lines
   nodeLabels:
-    database: "true"
+    role: "database" # add other labels as needed (e.g., role: database or role: storage)

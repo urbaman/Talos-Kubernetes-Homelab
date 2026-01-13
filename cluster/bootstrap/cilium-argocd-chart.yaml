@@ -12,10 +12,9 @@ spec:
       helm:
         releaseName: cilium
         valueFiles:
-        - $values/common-values.yaml
+        - $values/charts/prometheus/values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: "$values/cluster/bootstrap/cilium-values.yaml"
       ref: values
   destination:
     server: "https://kubernetes.default.svc"

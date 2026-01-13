@@ -54,22 +54,25 @@ kubectl apply -f cilium.yaml
 
 [Deploy, with or without Omni](https://github.com/urbaman/HomeLab/tree/88eea8da4458b10f44be4f9132422f3b08641766/Kubernetes/Cluster/05-Talos)
 
-Pre-production
+## Pre-production
+
 Manually install basic tools, without service/pod monitors, through manifests, eventually templating helm charts (doable with ansible) if using ArgoCD for GitOps.
 
-External Secrets Operator (with OpenBao)
-Sealed Secrets (with Git)
-Storage (for Valkey)
-Valkey (for ArgoCD)
-ArgoCD
-Production
+- Metrics Server
+- External Secrets Operator (with OpenBao)
+- Sealed Secrets (with Git)
+- Storage (for Valkey)
+- Valkey (for ArgoCD)
+- ArgoCD
+
+## Production
+
 Point ESO to the Secrets Vault or SS to the Git Server and get the secrets, then point ArgoCD to a repo with the proper ArgoApps to (re)deploy
 
-Metrics Server
-Storage (NFS, Ceph,... if not already deployed for Valkey)
-Monitoring (Prometheus Stack, and service/pod monitors where not already deployed: CNI, ArgoCD, ESO/SS, Storage, ...)
-Cert-manager
-Ingress (Traefik)
-Metallb (if needed)
-Databases (other than Valkey)
-...
+- Storage (NFS, Ceph,... if not already deployed for Valkey)
+- Monitoring (Prometheus Stack, and service/pod monitors where not already deployed: CNI, ArgoCD, ESO/SS, Storage, ...)
+- Cert-manager
+- Ingress (Traefik)
+- Metallb (if needed)
+- Databases (other than Valkey)
+- ...

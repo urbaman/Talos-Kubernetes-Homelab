@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: External-Secrets-Operator
+  namespace: argocd
+spec:
+  project: External-Secrets-Operator
+  sources:
+    - repoURL: https://charts.external-secrets.io
+      chart: external-secrets
+      targetRevision: 1.2.1
+      helm:
+        releaseName: external-secrets
+#        valueFiles:
+#        - $values/cluster/pre-production/externalSecretsOperator/eso-values.yaml
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system

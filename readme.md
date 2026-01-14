@@ -19,15 +19,15 @@ Talos-Kubernetes-Homelab
     |   ├── worker.yaml
     |   ├── worker-database.yaml
     |   ├── worker-gpu.yaml
-    |   ├── cilium-argocd-chart.yaml
-    |   └── cilium-values.yaml
+    |   ├── cilium
+    |   |   ├── cilium-argocd-chart.yaml
+    |   |   └── cilium-values.yaml
+    |   └── metricsServer
+    |       ├── manifest-kubelet-serving-cert-approver-argocd.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
+    |       └── manifest-metrics-server-argocd.yaml #copy the metrics server manifest, standalone or high-availability
     ├── pre-production # pre-production setup
-    |   ├── metricsServer
-    |   |   ├── manifest-kubelet-serving-cert-approver-argocd.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
-    |   |   └── manifest-metrics-server-argocd.yaml #copy the metrics server manifest, standalone or high-availability
     |   ├── externalSecretsOperator
     |   |   ├── eso-argocd-chart.yaml
-    |   |   ├── eso-values.yaml
     |   |   └── manifest-eso-argocd-external-secret-store.yaml
     |   ├── sealedSecrets
     |   ├── rookCeph

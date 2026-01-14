@@ -38,7 +38,7 @@ machine:
 # For setting custom node labels, uncomment and modify the following lines
   nodeLabels:
     workload: "all" # add other labels as needed (e.g., role: "database" or role: "storage")
-    csi: "none" # or "ceph"
+    csi: "ceph"
 ---
 apiVersion: v1alpha1
 kind: HostnameConfig

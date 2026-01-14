@@ -7,7 +7,7 @@ machine:
     interfaces:
       - interface: eth0
         addresses:
-          - 10.0.0.201/8
+          - 10.0.0.201/24
 # For control plane nodes, uncomment the following lines to set a VIP
 #        vip:
 #          ip: 192.168.0.15
@@ -37,4 +37,10 @@ machine:
 #      feature-gates: DynamicResourceAllocation=true
 # For setting custom node labels, uncomment and modify the following lines
   nodeLabels:
-    role: "database" # add other labels as needed (e.g., role: database or role: storage)
+    workload: "database" # add other labels as needed (e.g., role: "database" or role: "storage")
+    csi: "hostpath" # or "ceph"
+---
+apiVersion: v1alpha1
+kind: HostnameConfig
+hostname: my-custom-hostname
+auto: off

@@ -37,10 +37,10 @@ Talos-Kubernetes-Homelab
     |   |   ├── rookCeph-values.yaml
     |   |   ├── rookCephCluster-chart-argocd.yaml
     |   |   └── rookCephCluster-values.yaml
-    |   ├── NFS
-    |   |   ├── nfsSubdirExternalProvisioner-chart-argocd.yaml
-    |   |   ├── nfsSubdirExternalProvisioner-values.yaml
-    |   |   └── nfsSubdirExternalProvisioner-storageClass-volumeSnapshotClass-manifest.yaml
+    |   ├── csiDriverNfs
+    |   |   ├── csiDriverNfs-chart-argocd.yaml
+    |   |   ├── csiDriverNfs-values.yaml
+    |   |   └── csiDriverNfs-storageClass-volumeSnapshotClass-manifest.yaml
     |   ├── valkey
     |   └── argoCD
     └── production # production setup

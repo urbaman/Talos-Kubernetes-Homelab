@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: Csi-Driver-Nfs
+  namespace: argocd
+spec:
+  project: Csi-Driver-Nfs
+  sources:
+    - repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+      chart: csi-driver-nfs
+      targetRevision: 4.12.1
+      helm:
+        releaseName: csi-driver-nfs
+        valueFiles:
+        - $values/cluster/pre-production/csiDriverNfs/csiDriverNfs-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels: # The labels to set on the application namespace
+        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - CreateNamespace=true

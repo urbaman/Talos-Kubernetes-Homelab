@@ -44,3 +44,12 @@ apiVersion: v1alpha1
 kind: HostnameConfig
 hostname: my-custom-hostname
 auto: off
+---
+# local-storage.yaml
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: local-path-provisioner
+provisioning:
+  diskSelector:
+    match: disk.dev_path == "/dev/sdb"
+  minSize: 10GB

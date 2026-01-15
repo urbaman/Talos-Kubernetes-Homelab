@@ -20,25 +20,27 @@ Talos-Kubernetes-Homelab
     |   ├── worker-database.yaml
     |   ├── worker-gpu.yaml
     |   ├── cilium
-    |   |   ├── cilium-argocd-chart.yaml
+    |   |   ├── cilium-chart-argocd.yaml
     |   |   └── cilium-values.yaml
     |   └── metricsServer
-    |       ├── manifest-kubelet-serving-cert-approver-argocd.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
-    |       └── manifest-metrics-server-argocd.yaml #copy the metrics server manifest, standalone or high-availability
+    |       ├── kubeletServingCertApprover-manifest.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
+    |       └── metricsServer-manifest.yaml #copy the metrics server manifest, standalone or high-availability
     ├── pre-production # pre-production setup
     |   ├── externalSecretsOperator
-    |   |   ├── eso-argocd-chart.yaml
-    |   |   └── manifest-eso-argocd-external-secret-store.yaml
+    |   |   ├── externalSecretsOperator-chart-argocd.yaml
+    |   |   └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
+    |   ├── localPathProvisioner
+    |   |   └── localPathProvisioner-manifest.yaml
     |   ├── sealedSecrets
     |   ├── rookCeph
-    |   |   ├── rook-ceph-argocd-chart.yaml
-    |   |   ├── rook-ceph-values.yaml
-    |   |   ├── rook-ceph-cluster-argocd-chart.yaml
-    |   |   └── rook-ceph-cluster-values.yaml
+    |   |   ├── rookCeph-chart-argocd.yaml
+    |   |   ├── rookCeph-values.yaml
+    |   |   ├── rookCephCluster-chart-argocd.yaml
+    |   |   └── rookCephCluster-values.yaml
     |   ├── NFS
-    |   |   ├── nfs-subdir-external-provisioner-argocd-chart.yaml
-    |   |   ├── nfs-subdir-external-provisioner-values.yaml
-    |   |   └── manifest-nfs-subdir-external-provisioner-argocd-sc-vss.yaml
+    |   |   ├── nfsSubdirExternalProvisioner-chart-argocd.yaml
+    |   |   ├── nfsSubdirExternalProvisioner-values.yaml
+    |   |   └── nfsSubdirExternalProvisioner-storageClass-volumeSnapshotClass-manifest.yaml
     |   ├── valkey
     |   └── argoCD
     └── production # production setup

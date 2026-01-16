@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: valkey
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: valkey-auth
+spec:
+  externalSecretName: valkey-auth
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: valkey
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: valkey-auth # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: default-pwd # Key to create in the K8s secret
+        remoteRef:
+          key: talos-pve/valkey-auth # Path to the secret
+          property: default-pwd # Key of the Vault secret to copy

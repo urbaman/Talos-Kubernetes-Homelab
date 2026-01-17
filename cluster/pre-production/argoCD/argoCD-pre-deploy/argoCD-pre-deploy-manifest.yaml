@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
 #  labels:
 #    pod-security.kubernetes.io/enforce: privileged
 ---
@@ -9,6 +11,8 @@ apiVersion: external-secrets.io/v1
 kind: ClusterExternalSecret
 metadata:
   name: argocd-valkey-auth
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   externalSecretName: argocd-valkey-auth
   namespaceSelectors:
@@ -27,9 +31,15 @@ spec:
     data:
       - secretKey: redis-username # Key to create in the K8s secret
         remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
           key: talos-pve/argocd-valkey-auth # Path to the secret
+          metadataPolicy: None
           property: redis-username # Key of the Vault secret to copy
       - secretKey: redis-password # Key to create in the K8s secret
         remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
           key: talos-pve/argocd-valkey-auth # Path to the secret
+          metadataPolicy: None
           property: redis-password # Key of the Vault secret to copy

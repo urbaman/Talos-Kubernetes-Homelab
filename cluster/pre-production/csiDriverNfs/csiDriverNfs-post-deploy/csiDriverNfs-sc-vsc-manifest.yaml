@@ -1,11 +1,13 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: <Host>-nfs-csi
+  name: asustornas1-nfs-csi
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: <Hostname or IP>
-  share: <Share>
+  server: 10.0.100.31
+  share: /volume1/k8svolumes
   subDir: ${pvc.metadata.namespace}/${pvc.metadata.name}/${pv.metadata.name}
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -20,6 +22,8 @@ mountOptions:
 apiVersion: snapshot.storage.k8s.io/v1
 kind: VolumeSnapshotClass
 metadata:
-  name: <Hostname>-csi-nfs-snapshotclass
+  name: asustornas1-csi-nfs-snapshotclass
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
 driver: nfs.csi.k8s.io
 deletionPolicy: Delete

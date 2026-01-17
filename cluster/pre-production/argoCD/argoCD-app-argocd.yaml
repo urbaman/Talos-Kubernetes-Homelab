@@ -6,6 +6,9 @@ metadata:
 spec:
   project: pre-prod
   sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/argoCD/argoCD-pre-deploy
     - repoURL: https://argoproj.github.io/argo-helm
       chart: argo-cd
       targetRevision: 9.3.4

@@ -6,6 +6,9 @@ metadata:
 spec:
   project: Valkey
   sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/valkey/valkey-pre-deploy
     - repoURL: https://valkey.io/valkey-helm/
       chart: valkey
       targetRevision: 0.9.3

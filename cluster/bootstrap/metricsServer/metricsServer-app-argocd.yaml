@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metrics-server
+  namespace: argocd
+spec:
+  project: bootstrap
+  sources:
+    - repoURL: https://kubernetes-sigs.github.io/metrics-server/
+      chart: metrics-server
+      targetRevision: 3.13.0
+      helm:
+        releaseName: metrics-server
+        valueFiles:
+        - $values/cluster/bootstrap/
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+#    - repoURL: 'https://github.com/kubernetes-sigs/metrics-server.git'
+#      targetRevision: latest
+#      path: releases/download/high-availability-1.21+.yaml
+#    - repoURL: 'https://github.com/rancher/local-path-provisioner.git'
+#      targetRevision: v0.0.34
+#      path: deploy
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kube-system

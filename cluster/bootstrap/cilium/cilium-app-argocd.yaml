@@ -4,7 +4,7 @@ metadata:
   name: cilium-cni
   namespace: argocd
 spec:
-  project: cilium-cni
+  project: bootstrap
   sources:
     - repoURL: 'https://github.com/kubernetes-sigs/gateway-api.git'
       targetRevision: HEAD

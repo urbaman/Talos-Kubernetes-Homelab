@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Rook-Ceph
+  name: rook-ceph-cluster
   namespace: argocd
 spec:
-  project: Rook-Ceph
+  project: pre-prod
   sources:
     - repoURL: https://charts.rook.io/release
       chart: rook-ceph-cluster

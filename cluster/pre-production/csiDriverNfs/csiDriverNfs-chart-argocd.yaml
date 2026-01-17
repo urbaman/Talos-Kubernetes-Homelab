@@ -18,7 +18,7 @@ spec:
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: kube-system
+    namespace: csi-driver-nfs
   syncPolicy:
     managedNamespaceMetadata:
       labels: # The labels to set on the application namespace

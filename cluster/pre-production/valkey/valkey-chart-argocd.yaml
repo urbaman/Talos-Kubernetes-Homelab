@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: Valkey
+  namespace: argocd
+spec:
+  project: Valkey
+  sources:
+    - repoURL: https://valkey.io/valkey-helm/
+      chart: valkey
+      targetRevision: 0.9.3
+      helm:
+        releaseName: valkey
+        valueFiles:
+        - $values/cluster/pre-production/valkey/valkey-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: valkey
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels: # The labels to set on the application namespace
+        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+    - CreateNamespace=true

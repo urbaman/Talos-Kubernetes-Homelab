@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ArgoCD
+  name: argocd
   namespace: argocd
 spec:
-  project: ArgoCD
+  project: pre-prod
   sources:
     - repoURL: https://argoproj.github.io/argo-helm
       chart: argo-cd
-      targetRevision: 3.35.4
+      targetRevision: 9.3.4
       helm:
-        releaseName: argo-cd
+        releaseName: argocd
         valueFiles:
         - $values/cluster/pre-production/argoCD/argoCD-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
@@ -24,4 +24,5 @@ spec:
 #      labels: # The labels to set on the application namespace
 #        pod-security.kubernetes.io/enforce: privileged       
     syncOptions:
+      - ServerSideApply=true
       - CreateNamespace=true

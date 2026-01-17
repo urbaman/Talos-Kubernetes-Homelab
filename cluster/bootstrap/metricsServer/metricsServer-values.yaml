@@ -42,7 +42,7 @@ apiService:
   # Annotations to add to the API service
   annotations: {}
   # Specifies whether to skip TLS verification
-  insecureSkipTLSVerify: true
+  insecureSkipTLSVerify: false
   # The PEM encoded CA bundle for TLS verification
   caBundle: ""
 
@@ -206,7 +206,7 @@ tls:
   # - `helm`           : Helm will generate a self-signed certificate
   # - `cert-manager`   : Use cert-manager.io to create and maintain the certificate
   # - `existingSecret` : Reuse an existing secret. No new secret will be created
-  type: "metrics-server"
+  type: "cert-manager"
   # Kubernetes cluster domain. Used to configure Subject Alt Names for the certificate
   clusterDomain: cluster.local
 

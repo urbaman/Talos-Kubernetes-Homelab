@@ -13,6 +13,12 @@ spec:
         releaseName: cert-manager
         valueFiles:
         - $values/cluster/bootstrap/certManager/certManager-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

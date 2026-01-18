@@ -22,10 +22,16 @@ Talos-Kubernetes-Homelab
     |   ├── cilium
     |   |   ├── cilium-app-argocd.yaml
     |   |   ├── cilium-values.yaml
-    |   |   └── argoCD-pre-deploy
-    |   |       └── argoCD-pre-deploy-manifest.yaml
+    |   |   └── cilium-post-deploy
+    |   |       └── cilium-lb-manifest.yaml
+    |   ├── certManager
+    |   |   ├── certManager-app-argocd.yaml
+    |   |   ├── certManager-values.yaml
     |   └── metricsServer
-    |       ├── kubeletServingCertApprover-manifest.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
+    |       ├── kubeletServingCertApprover-app-argocd.yaml
+    |       ├── kubeletServingCertApprover-manifest.yaml
+    |       ├── metricsServer-app-argocd.yaml
+    |       ├── metricsServer-values.yaml
     |       └── metricsServer-manifest.yaml #copy the metrics server manifest, standalone or high-availability
     ├── pre-production # pre-production setup
     |   ├── externalSecretsOperator
@@ -33,6 +39,7 @@ Talos-Kubernetes-Homelab
     |   |   └── externalSecretsOperator-post-deploy
     |   |       └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
     |   ├── localPathProvisioner
+    |   |   ├── localPathProvisioner-app-argocd.yaml
     |   |   └── localPathProvisioner-manifest.yaml
     |   ├── sealedSecrets
     |   ├── rookCeph

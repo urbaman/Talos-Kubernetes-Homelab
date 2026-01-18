@@ -18,10 +18,10 @@ spec:
 #      ref: values
     - repoURL: 'https://github.com/alex1989hu/kubelet-serving-cert-approver.git'
       targetRevision: v0.10.2
-      path: deploy/standalone-install.yaml
+      path: deploy/standalone
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: local-path-storage
+    namespace: kubelet-serving-cert-approver
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

@@ -18,7 +18,9 @@ spec:
 #      ref: values
     - repoURL: 'https://github.com/alex1989hu/kubelet-serving-cert-approver.git'
       targetRevision: v0.10.2
-      path: deploy/standalone
+      path: deploy
+      directory:
+        include: '*standalone*'
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubelet-serving-cert-approver

@@ -4,7 +4,7 @@ metadata:
   name: cert-manager
   namespace: argocd
 spec:
-  project: bootstrap
+  project: pre-prod
   sources:
     - repoURL: oci://quay.io/jetstack/charts/cert-manager
       chart: cert-manager
@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: cert-manager
         valueFiles:
-        - $values/cluster/bootstrap/certManager/certManager-values.yaml
+        - $values/cluster/pre-production/automation/certManager/certManager-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values

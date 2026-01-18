@@ -1,27 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: valkey
+  name: rook-ceph-cluster
   namespace: argocd
 spec:
   project: pre-prod
   sources:
-    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-      targetRevision: HEAD
-      path: cluster/pre-production/valkey/valkey-pre-deploy
-    - repoURL: https://valkey.io/valkey-helm/
-      chart: valkey
-      targetRevision: 0.9.3
+    - repoURL: https://charts.rook.io/release
+      chart: rook-ceph-cluster
+      targetRevision: 1.18.9
       helm:
-        releaseName: valkey
+        releaseName: rook-ceph-cluster
         valueFiles:
-        - $values/cluster/pre-production/valkey/valkey-values.yaml
+        - $values/cluster/pre-production/storage/rookCeph/rookCephCluster-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: valkey
+    namespace: rook-ceph
   syncPolicy:
     managedNamespaceMetadata:
       labels: # The labels to set on the application namespace

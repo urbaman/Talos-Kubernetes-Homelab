@@ -5,6 +5,10 @@ metadata:
   namespace: cloudnative-pg
 spec:
   instances: 3
+  affinity:
+    podAntiAffinityType: required
+    nodeSelector:
+      workload: database
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17-0.5.3 # This is to enable Immich (see Immich deploy to enable db extensions)
 
   # Example of rolling update strategy:

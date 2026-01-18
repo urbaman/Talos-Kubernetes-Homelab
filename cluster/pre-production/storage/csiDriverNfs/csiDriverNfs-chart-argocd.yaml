@@ -12,7 +12,7 @@ spec:
       helm:
         releaseName: csi-driver-nfs
         valueFiles:
-        - $values/cluster/pre-production/csiDriverNfs/csiDriverNfs-values.yaml
+        - $values/cluster/pre-production/storage/csiDriverNfs/csiDriverNfs-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values

@@ -1,0 +1,43 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cnpg-cluster-17-053
+  namespace: cloudnative-pg
+spec:
+  instances: 3
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17-0.5.3 # This is to enable Immich (see Immich deploy to enable db extensions)
+
+  # Example of rolling update strategy:
+  # - unsupervised: automated update of the primary once all
+  #                 replicas have been upgraded (default)
+  # - supervised: requires manual supervision to perform
+  #               the switchover of the primary
+  primaryUpdateStrategy: unsupervised
+
+  # Roles (db usernames)
+  #managed:
+  #  roles:
+  #  - name: <username>
+  #    login: true
+  #    passwordSecret:
+  #      name: <cluster-name>-<username>
+
+  # This is to enable Immich (see Immich deploy to enable db extensions)
+  postgresql:
+    shared_preload_libraries:
+      - "vchord.so"
+    parameters:
+      max_connections: "1024" # This is for Gitlab
+
+  enableSuperuserAccess: true
+  # Persistent storage configuration
+  storage:
+    size: 15Gi
+    storageClass: local-path
+  walStorage:
+    size: 15Gi
+    storageClass: local-path
+
+  # Add podMonitor for prometheus monitoring (remember to disable labels scraping in kube-prometheus-stack - podMonitorSelectorNilUsesHelmValues: false)
+  #monitoring:
+  #  enablePodMonitor: true

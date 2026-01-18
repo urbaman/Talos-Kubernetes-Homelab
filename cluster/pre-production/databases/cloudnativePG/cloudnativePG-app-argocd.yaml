@@ -27,4 +27,5 @@ spec:
     namespace: cloudnative-pg
   syncPolicy:
     syncOptions:
+    - ServerSideApply=true
     - CreateNamespace=true

@@ -1,11 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Valkey
+  name: valkey
   namespace: argocd
 spec:
-  project: Valkey
+  project: pre-prod
   sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/valkey/valkey-pre-deploy
     - repoURL: https://valkey.io/valkey-helm/
       chart: valkey
       targetRevision: 0.9.3

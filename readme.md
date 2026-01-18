@@ -20,29 +20,47 @@ Talos-Kubernetes-Homelab
     |   ├── worker-database.yaml
     |   ├── worker-gpu.yaml
     |   ├── cilium
-    |   |   ├── cilium-chart-argocd.yaml
-    |   |   └── cilium-values.yaml
+    |   |   ├── cilium-app-argocd.yaml
+    |   |   ├── cilium-values.yaml
+    |   |   └── cilium-post-deploy
+    |   |       └── cilium-lb-manifest.yaml
+    |   ├── certManager
+    |   |   ├── certManager-app-argocd.yaml
+    |   |   ├── certManager-values.yaml
     |   └── metricsServer
-    |       ├── kubeletServingCertApprover-manifest.yaml #copy the kubelet-serving-cert-approver manifest, standalone or high-availability
+    |       ├── kubeletServingCertApprover-app-argocd.yaml
+    |       ├── kubeletServingCertApprover-manifest.yaml
+    |       ├── metricsServer-app-argocd.yaml
+    |       ├── metricsServer-values.yaml
     |       └── metricsServer-manifest.yaml #copy the metrics server manifest, standalone or high-availability
     ├── pre-production # pre-production setup
     |   ├── externalSecretsOperator
-    |   |   ├── externalSecretsOperator-chart-argocd.yaml
-    |   |   └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
+    |   |   ├── externalSecretsOperator-app-argocd.yaml
+    |   |   └── externalSecretsOperator-post-deploy
+    |   |       └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
     |   ├── localPathProvisioner
+    |   |   ├── localPathProvisioner-app-argocd.yaml
     |   |   └── localPathProvisioner-manifest.yaml
     |   ├── sealedSecrets
     |   ├── rookCeph
-    |   |   ├── rookCeph-chart-argocd.yaml
-    |   |   ├── rookCeph-values.yaml
-    |   |   ├── rookCephCluster-chart-argocd.yaml
+    |   |   ├── rookCeph-app-argocd.yaml
+    |   |   ├── rookCephCluster-app-argocd.yaml
     |   |   └── rookCephCluster-values.yaml
     |   ├── csiDriverNfs
-    |   |   ├── csiDriverNfs-chart-argocd.yaml
+    |   |   ├── csiDriverNfs-app-argocd.yaml
     |   |   ├── csiDriverNfs-values.yaml
-    |   |   └── csiDriverNfs-storageClass-volumeSnapshotClass-manifest.yaml
+    |   |   └── csiDriverNfs-post-deploy
+    |   |       └── csiDriverNfs-storageClass-volumeSnapshotClass-manifest.yaml
     |   ├── valkey
+    |   |   ├── valkey-pre-deploy
+    |   |   |   └── valkey-pre-deploy-manifest.yaml
+    |   |   ├── valkey-app-argocd.yaml
+    |   |   └── valkey-values.yaml
     |   └── argoCD
+    |   |   ├── argoCD-pre-deploy
+    |   |   |   └── argoCD-pre-deploy-manifest.yaml
+    |   |   ├── argoCD-app-argocd.yaml
+    |   |   └── argoCD-values.yaml
     └── production # production setup
 ```
 
@@ -59,7 +77,7 @@ kubectl apply -f cilium.yaml
 
 ## Pre-production
 
-Manually install basic tools, without service/pod monitors, through manifests, eventually templating helm charts (doable with ansible) if using ArgoCD for GitOps.
+Manually install basic tools, without service/pod monitors, through manifests, eventually templating helm apps (doable with ansible) if using ArgoCD for GitOps.
 
 - Metrics Server
 - External Secrets Operator (with OpenBao)

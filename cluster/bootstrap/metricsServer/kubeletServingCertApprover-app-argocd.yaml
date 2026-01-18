@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubelet-serving-cert-approver
+  namespace: argocd
+spec:
+  project: bootstrap
+  sources:
+#    - repoURL: https://charts.external-secrets.io
+#      chart: external-secrets
+#      targetRevision: 1.2.1
+#      helm:
+#        releaseName: external-secrets
+#        valueFiles:
+#        - $values/cluster/pre-production/externalSecretsOperator/eso-values.yaml
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      ref: values
+    - repoURL: 'https://github.com/alex1989hu/kubelet-serving-cert-approver.git'
+      targetRevision: v0.10.2
+      path: deploy/standalone
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: kubelet-serving-cert-approver
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

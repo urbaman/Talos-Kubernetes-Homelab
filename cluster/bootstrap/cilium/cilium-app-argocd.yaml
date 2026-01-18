@@ -4,8 +4,11 @@ metadata:
   name: cilium-cni
   namespace: argocd
 spec:
-  project: cilium-cni
+  project: bootstrap
   sources:
+    - repoURL: 'https://github.com/kubernetes-sigs/gateway-api.git'
+      targetRevision: HEAD
+      path: config/crd/standard
     - repoURL: https://helm.cilium.io/
       chart: cilium
       targetRevision: 1.18.5
@@ -16,6 +19,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/bootstrap/cilium/cilium-post-deploy
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system

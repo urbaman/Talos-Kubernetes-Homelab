@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Rook-Ceph
+  name: rook-ceph
   namespace: argocd
 spec:
-  project: Rook-Ceph
+  project: pre-prod
   sources:
     - repoURL: https://charts.rook.io/release
-      chart: rook-ceph-cluster
+      chart: rook-ceph
       targetRevision: 1.18.9
       helm:
-        releaseName: rook-ceph-cluster
-        valueFiles:
-        - $values/cluster/pre-production/rookCeph/rookCephCluster-values.yaml
-    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-      targetRevision: HEAD
-      ref: values
+        releaseName: rook-ceph
+#        valueFiles:
+#        - $values/cluster/pre-production/externalSecretsOperator/eso-values.yaml
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rook-ceph
@@ -24,4 +24,5 @@ spec:
       labels: # The labels to set on the application namespace
         pod-security.kubernetes.io/enforce: privileged
     syncOptions:
+    - ServerSideApply=true
     - CreateNamespace=true

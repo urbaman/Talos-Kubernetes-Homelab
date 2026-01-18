@@ -19,48 +19,57 @@ Talos-Kubernetes-Homelab
     |   ├── worker.yaml
     |   ├── worker-database.yaml
     |   ├── worker-gpu.yaml
-    |   ├── cilium
-    |   |   ├── cilium-app-argocd.yaml
-    |   |   ├── cilium-values.yaml
-    |   |   └── cilium-post-deploy
-    |   |       └── cilium-lb-manifest.yaml
-    |   ├── certManager
-    |   |   ├── certManager-app-argocd.yaml
-    |   |   ├── certManager-values.yaml
-    |   └── metricsServer
-    |       ├── kubeletServingCertApprover-app-argocd.yaml
-    |       ├── kubeletServingCertApprover-manifest.yaml
-    |       ├── metricsServer-app-argocd.yaml
-    |       ├── metricsServer-values.yaml
-    |       └── metricsServer-manifest.yaml #copy the metrics server manifest, standalone or high-availability
+    |   └── cilium
+    |       ├── cilium-app-argocd.yaml
+    |       ├── cilium-values.yaml
+    |       └── cilium-post-deploy
+    |           └── cilium-lb-manifest.yaml
     ├── pre-production # pre-production setup
-    |   ├── externalSecretsOperator
-    |   |   ├── externalSecretsOperator-app-argocd.yaml
-    |   |   └── externalSecretsOperator-post-deploy
-    |   |       └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
-    |   ├── localPathProvisioner
-    |   |   ├── localPathProvisioner-app-argocd.yaml
-    |   |   └── localPathProvisioner-manifest.yaml
-    |   ├── sealedSecrets
-    |   ├── rookCeph
-    |   |   ├── rookCeph-app-argocd.yaml
-    |   |   ├── rookCephCluster-app-argocd.yaml
-    |   |   └── rookCephCluster-values.yaml
-    |   ├── csiDriverNfs
-    |   |   ├── csiDriverNfs-app-argocd.yaml
-    |   |   ├── csiDriverNfs-values.yaml
-    |   |   └── csiDriverNfs-post-deploy
-    |   |       └── csiDriverNfs-storageClass-volumeSnapshotClass-manifest.yaml
-    |   ├── valkey
-    |   |   ├── valkey-pre-deploy
-    |   |   |   └── valkey-pre-deploy-manifest.yaml
-    |   |   ├── valkey-app-argocd.yaml
-    |   |   └── valkey-values.yaml
-    |   └── argoCD
-    |   |   ├── argoCD-pre-deploy
-    |   |   |   └── argoCD-pre-deploy-manifest.yaml
-    |   |   ├── argoCD-app-argocd.yaml
-    |   |   └── argoCD-values.yaml
+    |   ├── automation
+    |   |   ├── argoCD
+    |   |   |   ├── argoCD-pre-deploy
+    |   |   |   |   └── argoCD-pre-deploy-manifest.yaml
+    |   |   |   ├── argoCD-app-argocd.yaml
+    |   |   |   └── argoCD-values.yaml
+    |   |   ├── certManager
+    |   |   |   ├── certManager-app-argocd.yaml
+    |   |   |   └── certManager-values.yaml
+    |   |   ├── externalSecretsOperator
+    |   |   |   ├── externalSecretsOperator-pre-deploy-manual
+    |   |   |   |   └── externalSecretsOperator-ExternalSecretStore-secret.yaml
+    |   |   |   ├── externalSecretsOperator-post-deploy
+    |   |   |   |   └── externalSecretsOperator-ExternalSecretStore-manifest.yaml
+    |   |   |   └── externalSecretsOperator-app-argocd.yaml
+    |   |   └── automation-apps-argocd.yaml
+    |   ├── databases
+    |   |   ├── valkey
+    |   |   |   ├── valkey-pre-deploy
+    |   |   |   |   └── valkey-pre-deploy-manifest.yaml
+    |   |   |   ├── valkey-app-argocd.yaml
+    |   |   |   └── valkey-values.yaml
+    |   |   └── databases-apps-argocd.yaml
+    |   ├── observability
+    |   |   ├── metricsServer
+    |   |   |   ├── kubeletServingCertApprover-app-argocd.yaml
+    |   |   |   ├── kubeletServingCertApprover-manifest.yaml
+    |   |   |   ├── metricsServer-app-argocd.yaml
+    |   |   |   ├── metricsServer-values.yaml
+    |   |   |   └── metricsServer-manifest.yaml #copy the metrics server manifest, standalone or high-availability
+    |   |   └── observability-apps-argocd.yaml
+    |   └── storage
+    |       ├── csiDriverNfs
+    |       |   ├── csiDriverNfs-app-argocd.yaml
+    |       |   ├── csiDriverNfs-values.yaml
+    |       |   └── csiDriverNfs-post-deploy
+    |       |       └── csiDriverNfs-storageClass-volumeSnapshotClass-manifest.yaml
+    |       ├── localPathProvisioner
+    |       |   ├── localPathProvisioner-app-argocd.yaml
+    |       |   └── localPathProvisioner-manifest.yaml
+    |       ├── rookCeph
+    |       |   ├── rookCeph-app-argocd.yaml
+    |       |   ├── rookCephCluster-app-argocd.yaml
+    |       |   └── rookCephCluster-values.yaml
+    |       └── databases-apps-argocd.yaml
     └── production # production setup
 ```
 

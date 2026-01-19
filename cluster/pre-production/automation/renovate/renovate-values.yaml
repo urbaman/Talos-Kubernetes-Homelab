@@ -41,7 +41,7 @@ cronjob:
   # -- Deadline for the job to finish
   activeDeadlineSeconds: ''
   # -- Number of times to retry running the pod before considering the job as being failed
-  jobBackoffLimit: ''
+  jobBackoffLimit: '0'
   # -- Maximal number of failures per index
   backoffLimitPerIndex: ''
   # -- Maximal number of failed indexes before terminating the Job execution
@@ -102,6 +102,9 @@ renovate:
           "labels": ["renovate", "argocd"],
           "platform": "github",
           "repositories": ["urbaman/Talos-Kubernetes-Homelab"],
+          "prConcurrentLimit": 0,
+          "prHourlyLimit": 0,
+          "enabledManagers": ["kubernetes", "argocd", "docker-compose"],
           "kubernetes": {
             "fileMatch": ["/manifaest/.+\\.yaml$/"]
           },

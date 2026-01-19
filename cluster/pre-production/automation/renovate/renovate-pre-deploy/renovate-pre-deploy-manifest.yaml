@@ -25,5 +25,8 @@ spec:
     data:
       - secretKey: RENOVATE_TOKEN # Key to create in the K8s secret
         remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
           key: talos-pve/renovate-env # Path to the secret
+          metadataPolicy: None
           property: RENOVATE_TOKEN # Key of the Vault secret to copy

@@ -107,10 +107,10 @@ renovate:
           "enabledManagers": ["kubernetes", "argocd"],
           "dependencyDashboard": false,
           "kubernetes": {
-            "fileMatch": ["*manifest.yaml"]
+            "fileMatch": ["/.+manifest\\.yaml$/"]
           },
           "argocd": {
-            "fileMatch": ["*argocd.yaml"]
+            "fileMatch": ["/.+argocd\\.yaml$/"]
           }
         }
   # See https://docs.renovatebot.com/self-hosted-configuration

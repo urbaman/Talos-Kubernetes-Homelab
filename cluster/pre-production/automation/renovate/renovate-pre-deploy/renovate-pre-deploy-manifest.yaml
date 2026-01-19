@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: renovate
+---
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: renovate-env
+spec:
+  externalSecretName: renovate-env
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: renovate
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: renovate-env # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: RENOVATE_TOKEN # Key to create in the K8s secret
+        remoteRef:
+          key: talos-pve/renovate-env # Path to the secret
+          property: RENOVATE_TOKEN # Key of the Vault secret to copy

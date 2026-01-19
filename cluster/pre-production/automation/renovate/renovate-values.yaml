@@ -105,12 +105,12 @@ renovate:
           "prConcurrentLimit": 0,
           "prHourlyLimit": 0,
           "enabledManagers": ["kubernetes", "argocd"],
-          "dependencyDashboard": true,
+          "dependencyDashboard": false,
           "kubernetes": {
-            "fileMatch": ["/.+manifest.+yaml$/"]
+            "fileMatch": ["/.+(manifest).+(yaml)$/"]
           },
           "argocd": {
-            "fileMatch": ["/.+argocd.+yaml$/"]
+            "fileMatch": ["/.+(argocd).+(yaml)$/"]
           }
         }
   # See https://docs.renovatebot.com/self-hosted-configuration

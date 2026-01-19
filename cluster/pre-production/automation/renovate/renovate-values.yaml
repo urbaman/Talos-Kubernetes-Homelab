@@ -105,6 +105,7 @@ renovate:
           "prConcurrentLimit": 0,
           "prHourlyLimit": 0,
           "enabledManagers": ["kubernetes", "argocd"],
+          "dependencyDashboard": true,
           "kubernetes": {
             "fileMatch": ["/.manifaest.yaml$/"]
           },

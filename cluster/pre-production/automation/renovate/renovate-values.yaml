@@ -104,12 +104,12 @@ renovate:
           "repositories": ["urbaman/Talos-Kubernetes-Homelab"],
           "prConcurrentLimit": 0,
           "prHourlyLimit": 0,
-          "enabledManagers": ["kubernetes", "argocd", "docker-compose"],
+          "enabledManagers": ["kubernetes", "argocd"],
           "kubernetes": {
-            "fileMatch": ["/manifaest/.+\\.yaml$/"]
+            "fileMatch": ["/.manifaest.yaml$/"]
           },
           "argocd": {
-            "fileMatch": ["/argocd/.+\\.yaml$/"]
+            "fileMatch": ["/.argocd.yaml$/"]
           }
         }
   # See https://docs.renovatebot.com/self-hosted-configuration

@@ -102,6 +102,9 @@ renovate:
           "labels": ["renovate", "argocd"],
           "platform": "github",
           "repositories": ["urbaman/Talos-Kubernetes-Homelab"],
+          "prConcurrentLimit": 0,
+          "prHourlyLimit": 0,
+          "enabledManagers": ["kubernetes", "argocd", "docker-compose"],
           "kubernetes": {
             "fileMatch": ["/manifaest/.+\\.yaml$/"]
           },

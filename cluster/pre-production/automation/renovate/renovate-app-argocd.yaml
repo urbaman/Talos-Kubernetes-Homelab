@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: renovate
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/automation/renovate/renovate-pre-deploy
+    - repoURL: oci://ghcr.io/renovatebot/charts/renovate
+      chart: renovate
+      targetRevision: 45.78.3
+      helm:
+        releaseName: renovate
+        valueFiles:
+        - $values/cluster/pre-production/automation/renovate/renovate-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: renovate
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true

@@ -322,7 +322,7 @@ securityContext:
   # -- disable privilege escalation
   allowPrivilegeEscalation: false
   # -- Run the pod with elevated privileges
-  privileged: false
+  privileged: true
   # -- SELinux options for the `cilium-agent` and init containers
   seLinuxOptions:
     level: 's0'

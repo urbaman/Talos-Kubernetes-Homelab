@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cilium-cni
+  namespace: argocd
+spec:
+  project: bootstrap
+  sources:
+    - repoURL: https://nvidia.github.io/k8s-device-plugin
+      chart: nvidia-device-plugin
+      targetRevision: 0.14.1
+      helm:
+        releaseName: nvidia-device-plugin
+        valueFiles:
+        - $values/cluster/pre-production/gpu/nvidiaDevicePlugin/nvidiaDevicePlugin-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/gpu/nvidiaDevicePlugin/nvidiaDevicePlugin-post-deploy
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: nvidia-device-plugin
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

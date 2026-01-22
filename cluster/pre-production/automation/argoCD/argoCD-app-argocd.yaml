@@ -19,6 +19,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/automation/argoCD/argoCD-post-deploy
   destination:
     server: "https://kubernetes.default.svc"
     namespace: argocd

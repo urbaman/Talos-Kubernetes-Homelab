@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cilium-cni
+  name: nvidia-device-plugin
   namespace: argocd
 spec:
   project: bootstrap

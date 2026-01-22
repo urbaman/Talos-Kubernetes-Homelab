@@ -23,8 +23,8 @@ spec:
     server: "https://kubernetes.default.svc"
     namespace: valkey
   syncPolicy:
-    managedNamespaceMetadata:
-      labels: # The labels to set on the application namespace
-        pod-security.kubernetes.io/enforce: privileged
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged
     syncOptions:
     - CreateNamespace=true

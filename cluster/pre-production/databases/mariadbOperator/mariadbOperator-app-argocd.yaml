@@ -22,7 +22,7 @@ spec:
       helm:
         releaseName: mariadb-operator
         valueFiles:
-        - $values/cluster/pre-production/databases/mariadb-operator/mariadbOperator-values.yaml
+        - $values/cluster/pre-production/databases/mariadbOperator/mariadbOperator-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values

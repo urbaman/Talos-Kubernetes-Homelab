@@ -6,9 +6,6 @@ metadata:
 spec:
   project: pre-prod
   sources:
-#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-#      targetRevision: HEAD
-#      path: cluster/pre-production/databases/valkey/valkey-pre-deploy
     - repoURL: https://helm.mariadb.com/mariadb-operator
       chart: mariadb-operator-crds
       targetRevision: 25.10.4
@@ -26,6 +23,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/mariadbOperator/clusters
   destination:
     server: "https://kubernetes.default.svc"
     namespace: mariadb-operator

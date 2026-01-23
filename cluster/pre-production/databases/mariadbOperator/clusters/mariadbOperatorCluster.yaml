@@ -67,7 +67,7 @@ spec:
       pc.recovery: "true"
       pc.wait_prim: "false"
       pc.wait_prim_timeout: PT30S
-      gcache_size: 1G
+#      gcache_size: 1G
   replicas: 3
   rootPasswordSecretKeyRef:
     key: root-password

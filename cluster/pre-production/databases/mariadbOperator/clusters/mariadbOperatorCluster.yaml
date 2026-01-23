@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mariadb-operator
+#  labels:
+#    pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: mariadb-root-pwd
+spec:
+  externalSecretName: mariadb-root-pwd
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: mariadb-operator
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: mariadb-root-pwd # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: root-password # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/mariadb-root-pwd # Path to the secret
+          metadataPolicy: None
+          property: root-password # Key of the Vault secret to copy
+---
+# Source: mariadb-cluster/templates/mariadb.yaml
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: MariaDB
+metadata:
+  name: mariadb-galera-mariadb-cluster
+  namespace: mariadb-operator
+  labels:
+    helm.sh/chart: mariadb-cluster-25.10.4
+    app.kubernetes.io/name: mariadb-cluster
+    app.kubernetes.io/instance: mariadb-galera
+    app.kubernetes.io/version: "0.0.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  galera:
+    agent:
+      gracefulShutdownTimeout: 10s
+    config:
+      volumeClaimTemplate:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        storageClassName: local-path
+    enabled: true
+    extraConfig: |
+      [mysqld]
+      expire_logs_days=1
+      max_binlog_size=100M
+    providerOptions:
+      evs.auto_evict: "1"
+      evs.inactive_timeout: PT30S
+      evs.install_timeout: PT30S
+      evs.suspect_timeout: PT10S
+      pc.ignore_sb: "false"
+      pc.recovery: "true"
+      pc.wait_prim: "false"
+      pc.wait_prim_timeout: PT30S
+    wsrep:
+      gcache_size: 1G
+  replicas: 3
+  rootPasswordSecretKeyRef:
+    key: root-password
+    name: mariadb-root-pwd
+  storage:
+    size: 10Gi
+    storageClassName: local-path

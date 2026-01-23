@@ -18,7 +18,7 @@ spec:
       ref: values
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: cluster/pre-production/databases/mariadbOperator/clusters/pre-deploy
+      path: cluster/pre-production/databases/mariadbOperator/clusters/mariadbOperatorClusters-pre-deploy
   destination:
     server: "https://kubernetes.default.svc"
     namespace: mariadb-operator

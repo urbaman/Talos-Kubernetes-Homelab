@@ -16,9 +16,9 @@ spec:
 #    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
 #      targetRevision: HEAD
 #      ref: values
-    - repoURL: 'https://github.com/rancher/local-path-provisioner.git'
-      targetRevision: v0.0.34
-      path: deploy
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/storage/localPathProvisioner/localPathProvisioner-kustomization
   destination:
     server: "https://kubernetes.default.svc"
     namespace: local-path-storage

@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mariadb-operator
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      path: cluster/pre-production/databases/valkey/valkey-pre-deploy
+    - repoURL: https://helm.mariadb.com/mariadb-operator
+      chart: mariadb-operator-crds
+      targetRevision: 25.10.4
+      helm:
+        releaseName: mariadb-operator-crds
+#        valueFiles:
+#        - $values/cluster/pre-production/databases/valkey/valkey-values.yaml
+    - repoURL: https://helm.mariadb.com/mariadb-operator
+      chart: mariadb-operator-crds
+      targetRevision: 25.10.4
+      helm:
+        releaseName: mariadb-operator
+        valueFiles:
+        - $values/cluster/pre-production/databases/mariadb-operator/mariadbOperator-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: mariadb-operator
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true

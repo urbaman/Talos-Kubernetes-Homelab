@@ -1,31 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: mariadb-operator
+  name: mariadb-operator-cluster
   namespace: argocd
 spec:
   project: pre-prod
   sources:
     - repoURL: https://helm.mariadb.com/mariadb-operator
-      chart: mariadb-operator-crds
+      chart: mariadb-cluster
       targetRevision: 25.10.4
       helm:
-        releaseName: mariadb-operator-crds
-#        valueFiles:
-#        - $values/cluster/pre-production/databases/valkey/valkey-values.yaml
-    - repoURL: https://helm.mariadb.com/mariadb-operator
-      chart: mariadb-operator
-      targetRevision: 25.10.4
-      helm:
-        releaseName: mariadb-operator
+        releaseName: mariadb-cluster
         valueFiles:
-        - $values/cluster/pre-production/databases/mariadbOperator/mariadbOperator-values.yaml
+        - $values/cluster/pre-production/databases/mariadbOperator/clusters/mariadbOperatorCluster-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
-#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-#      targetRevision: HEAD
-#      path: cluster/pre-production/databases/mariadbOperator/clusters
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/mariadbOperator/clusters/pre-deploy
   destination:
     server: "https://kubernetes.default.svc"
     namespace: mariadb-operator

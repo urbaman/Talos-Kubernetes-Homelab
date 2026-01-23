@@ -58,10 +58,6 @@ spec:
             storage: 10Gi
         storageClassName: local-path
     enabled: true
-    extraConfig: |
-      [mysqld]
-      expire_logs_days=1
-      max_binlog_size=100M
     providerOptions:
       evs.auto_evict: "1"
       evs.inactive_timeout: PT30S
@@ -80,3 +76,9 @@ spec:
   storage:
     size: 10Gi
     storageClassName: local-path
+  myCnf: |
+    [mysqld]
+    expire_logs_days=1
+    max_binlog_size=100M
+  tls:
+    enabled: true

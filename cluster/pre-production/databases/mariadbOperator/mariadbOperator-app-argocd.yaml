@@ -17,7 +17,7 @@ spec:
 #        valueFiles:
 #        - $values/cluster/pre-production/databases/valkey/valkey-values.yaml
     - repoURL: https://helm.mariadb.com/mariadb-operator
-      chart: mariadb-operator-crds
+      chart: mariadb-operator
       targetRevision: 25.10.4
       helm:
         releaseName: mariadb-operator

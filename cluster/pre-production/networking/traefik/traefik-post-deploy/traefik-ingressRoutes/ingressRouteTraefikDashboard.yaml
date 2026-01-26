@@ -30,7 +30,7 @@ spec:
           name: api@internal
           serversTransport: traefik-dashboard-transport
       middlewares:
-        - name: traefik-security
+        - name: security
   tls:
     secretName: traefik-k8s-urbaman-cloud
     options:

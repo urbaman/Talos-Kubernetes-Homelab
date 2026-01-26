@@ -23,7 +23,7 @@ spec:
       match: Host(`ceph-dashboard.urbaman.cloud`)
       services:
         - name: rook-ceph-mgr-dashboard
-          port: 7000
+          port: 8443
           serversTransport: ceph-dashboard
       middlewares:
         - name: security

@@ -42,7 +42,7 @@ crds:
 global:
   # -- Default domain used by all components
   ## Used for ingresses, certificates, SSO, notifications, etc.
-  domain: argocd.example.com
+  domain: argocd.urbaman.cloud
 
   # -- Runtime class name for all components
   runtimeClassName: ""
@@ -192,6 +192,11 @@ configs:
 
     # -- Annotations to be added to argocd-cm configmap
     annotations: {}
+
+    # -- Add readonly user to Argo CD
+    accounts.readonly: apiKey
+    rbac:
+      policy.csv: "g, readonly, role:readonly"
 
     # -- The name of tracking label used by Argo CD for resource pruning
     application.instanceLabelKey: argocd.argoproj.io/instance

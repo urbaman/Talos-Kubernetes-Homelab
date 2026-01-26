@@ -28,7 +28,7 @@ spec:
       services:
         - kind: TraefikService
           name: api@internal
-          serversTransport: traefik-dashboard-transport
+          serversTransport: traefik-dashboard
       middlewares:
         - name: security
   tls:

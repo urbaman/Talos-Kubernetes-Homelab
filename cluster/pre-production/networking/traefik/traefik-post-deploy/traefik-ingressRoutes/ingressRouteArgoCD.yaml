@@ -1,0 +1,44 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-argocd
+  namespace: traefik
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://argocd.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Argo CD"
+    gethomepage.dev/group: Automation
+    gethomepage.dev/icon: argocd.svg
+    gethomepage.dev/app: argocd # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Argo CD"
+    gethomepage.dev/widget.type: "argocd"
+    gethomepage.dev/widget.url: "https://argocd.urbaman.cloud"
+    gethomepage.dev/widget.key: "<token>"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`argocd.urbaman.cloud`)
+      priority: 10
+      services:
+        - name: argocd-server
+          port: 80
+          serversTransport: argocd
+      middlewares:
+        - name: security
+    - kind: Rule
+      match: Host(`argocd.urbaman.cloud`) && Header(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c
+          serversTransport: argocd
+      middlewares:
+        - name: security
+  tls:
+    secretName: argocd-urbaman-cloud
+    options:
+      name: tlsoptions

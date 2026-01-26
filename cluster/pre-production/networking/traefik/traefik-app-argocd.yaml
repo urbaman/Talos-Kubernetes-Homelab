@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+    - repoURL: https://helm.traefik.io/traefik
+      chart: traefik
+      targetRevision: 39.0.0
+      helm:
+        releaseName: traefik
+        valueFiles:
+        - $values/cluster/pre-production/networking/traefik/traefik-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/networking/traefik/traefik-certificates
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/networking/traefik/traefik-serversTransports
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/networking/traefik/traefik-ingressRoutes
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/networking/traefik/traefik-middlewares
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/networking/traefik/traefik-tlsOptions
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: traefik
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true

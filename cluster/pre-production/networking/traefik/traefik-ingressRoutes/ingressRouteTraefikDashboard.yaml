@@ -1,0 +1,37 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-websecure
+  namespace: traefik
+  annotations:
+    gethomepage.dev/href: "https://traefik-k8s.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Traefik Proxy Dashboard"
+    gethomepage.dev/group: Networking
+    gethomepage.dev/icon: traefik.svg
+    gethomepage.dev/app: traefik # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+    gethomepage.dev/name: "Traefik"
+    #gethomepage.dev/showStats: "true"
+    gethomepage.dev/widget.type: "traefik"
+    #gethomepage.dev/version: "2"
+    #gethomepage.dev/alerts: alertmanager
+    gethomepage.dev/widget.url: "https://traefik-k8s.urbaman.cloud"
+    #gethomepage.dev/pod-selector: ""
+    #gethomepage.dev/weight: 10 # optional
+    #gethomepage.dev/instance: "public" # optional
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`traefik-k8s.urbaman.cloud`)
+      services:
+        - kind: TraefikService
+          name: api@internal
+          serversTransport: traefik-dashboard-transport
+      middlewares:
+        - name: traefik-security
+  tls:
+    secretName: traefik-domain-com
+    options:
+      name: traefik-tlsoptions

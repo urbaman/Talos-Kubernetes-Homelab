@@ -1,0 +1,8 @@
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: cilium-hubble
+  namespace: kube-system
+spec:
+  serverName: cilium-hubble
+  insecureSkipVerify: true

@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-argocd
+  name: argocd
   namespace: argocd
   annotations:
     # For Homepage service discovery

@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-dashboard-websecure
+  name: traefik-dashboard
   namespace: traefik
   annotations:
     gethomepage.dev/href: "https://traefik-k8s.urbaman.cloud"

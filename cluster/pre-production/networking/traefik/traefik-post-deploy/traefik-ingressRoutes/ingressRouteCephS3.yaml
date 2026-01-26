@@ -1,11 +1,11 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-ceph-s3
+  name: ceph-s3
   namespace: rook-ceph
   annotations:
     # For Homepage service discovery
-    gethomepage.dev/href: "https://argocd.urbaman.cloud"
+    gethomepage.dev/href: "https://ceph-s3.urbaman.cloud"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: "Ceph S3"
     gethomepage.dev/group: Storage

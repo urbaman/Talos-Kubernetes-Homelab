@@ -1,0 +1,35 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: cilium-hubble
+  namespace: kube-system
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://cilium-hubble.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Cilium Hubble"
+    gethomepage.dev/group: Networking
+    gethomepage.dev/icon: cilium.svg
+    gethomepage.dev/app: hubble-ui # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Cilium Hubble"
+    #gethomepage.dev/widget.type: "cilium-hubble"
+    #gethomepage.dev/widget.url: "https://cilium-hubble.urbaman.cloud"
+    #gethomepage.dev/widget.key: "<token>"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`cilium-hubble.urbaman.cloud`)
+      services:
+        - name: hubble-ui
+          port: 80
+          serversTransport: cilium-hubble
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: cilium-hubble-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

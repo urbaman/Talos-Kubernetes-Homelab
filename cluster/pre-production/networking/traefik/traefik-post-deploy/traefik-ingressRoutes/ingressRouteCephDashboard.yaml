@@ -1,11 +1,11 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: traefik-ceph-dashboard
+  name: ceph-dashboard
   namespace: rook-ceph
   annotations:
     # For Homepage service discovery
-    gethomepage.dev/href: "https://argocd.urbaman.cloud"
+    gethomepage.dev/href: "https://ceph-dashboard.urbaman.cloud"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: "Ceph Dashboard"
     gethomepage.dev/group: Storage

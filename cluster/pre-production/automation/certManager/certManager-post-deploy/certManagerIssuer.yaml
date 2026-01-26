@@ -1,0 +1,66 @@
+
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: cloudflare-api-token
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: cloudflare-api-token
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: cert-manager
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: cloudflare-api-token # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: api-token # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/cloudflare-api-token # Path to the secret
+          metadataPolicy: None
+          property: api-token # Key of the Vault secret to copy
+#      - secretKey: redis-password # Key to create in the K8s secret
+#        remoteRef:
+#          conversionStrategy: Default
+#          decodingStrategy: None
+#          key: talos-pve/cloudflare-api-token # Path to the secret
+#          metadataPolicy: None
+#          property: redis-password # Key of the Vault secret to copy
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: cert-manager-acme-issuer
+  # Important: use the same namespace as Cert Manager deployment
+  # Otherwise Cert Manager won't be able to find related elements
+  namespace: cert-manager
+spec:
+  acme:
+    # Email on which you'll receive notification for our certificates (expiration and such)
+    email: urbaman@gmail.com
+    # Name of the secret under which to store the secret key used by acme
+    # This secret is managed by ClusterIssuer resource, you don't have to create it yourself
+    privateKeySecretRef:
+      name: cert-manager-acme-private-key
+    # ACME server to use
+    # Specify https://acme-v02.api.letsencrypt.org/directory for production
+    # Staging server issues staging certificate which won't be trusted by most external parties but can be used for development purposes
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory #for production
+    # Solvers define how to validate you're the owner of the domain for which to issue certificate
+    # We use DNS-01 challenge with Cloudflare by providing related Cloudflare credentials (API Token) 
+    solvers:
+    - dns01:
+        cloudflare:
+          apiTokenSecretRef:
+            name: cloudflare-api-token
+            key: api-token

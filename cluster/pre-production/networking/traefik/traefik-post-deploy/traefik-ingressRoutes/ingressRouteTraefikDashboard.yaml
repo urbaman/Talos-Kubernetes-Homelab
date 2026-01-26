@@ -34,4 +34,4 @@ spec:
   tls:
     secretName: traefik-k8s-urbaman-cloud
     options:
-      name: traefik-tlsoptions
+      name: tlsoptions

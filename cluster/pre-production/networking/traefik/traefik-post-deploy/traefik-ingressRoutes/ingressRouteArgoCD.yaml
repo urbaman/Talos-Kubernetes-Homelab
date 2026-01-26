@@ -2,7 +2,7 @@ apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: traefik-argocd
-  namespace: traefik
+  namespace: argocd
   annotations:
     # For Homepage service discovery
     gethomepage.dev/href: "https://argocd.urbaman.cloud"
@@ -24,23 +24,24 @@ spec:
       priority: 10
       services:
         - name: argocd-server
-          namespace: argocd
           port: 443
           serversTransport: argocd
       middlewares:
         - name: security
+          namespace: traefik
     - kind: Rule
       match: Host(`argocd.urbaman.cloud`) && Header(`Content-Type`, `application/grpc`)
       priority: 11
       services:
         - name: argocd-server
-          namespace: argocd
           port: 443
           scheme: h2c
           serversTransport: argocd
       middlewares:
         - name: security
+          namespace: traefik
   tls:
     secretName: argocd-urbaman-cloud
     options:
       name: tlsoptions
+      namespace: traefik

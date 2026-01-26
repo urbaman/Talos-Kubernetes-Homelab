@@ -19,7 +19,8 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/networking/traefik/traefik-post-deploy
-      recurse: true
+      directory:
+        recurse: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: traefik

@@ -25,9 +25,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/networking/traefik/traefik-ingressRoutes
-    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-      targetRevision: HEAD
-      path: cluster/pre-production/networking/traefik/traefik-middlewares
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      path: cluster/pre-production/networking/traefik/traefik-middlewares
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/networking/traefik/traefik-tlsOptions

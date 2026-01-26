@@ -1,0 +1,35 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-ceph-s3
+  namespace: rook-ceph
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://argocd.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Ceph S3"
+    gethomepage.dev/group: Storage
+    gethomepage.dev/icon: ceph.svg
+    gethomepage.dev/app: rook-ceph-rgw # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    #gethomepage.dev/name: "Ceph Dashboard"
+    #gethomepage.dev/widget.type: "argocd"
+    #gethomepage.dev/widget.url: "https://argocd.urbaman.cloud"
+    #gethomepage.dev/widget.key: "<token>"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`ceph-s3.urbaman.cloud`)
+      services:
+        - name: rook-ceph-rgw-ceph-objectstore
+          port: 80
+          serversTransport: ceph-s3
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: ceph-s3-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

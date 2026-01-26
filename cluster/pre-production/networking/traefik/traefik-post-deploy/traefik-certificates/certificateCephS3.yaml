@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ceph-s3-urbaman-cloud
+  namespace: rook-ceph
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - ceph-s3.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: ceph-s3-urbaman-cloud

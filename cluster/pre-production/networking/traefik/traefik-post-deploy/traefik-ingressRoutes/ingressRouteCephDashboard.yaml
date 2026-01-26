@@ -20,7 +20,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`ceph-dashboard.urbaman.cloud`) && (PathPrefix(`/`)
+      match: Host(`ceph-dashboard.urbaman.cloud`)
       services:
         - name: rook-ceph-mgr-dashboard
           port: 7000

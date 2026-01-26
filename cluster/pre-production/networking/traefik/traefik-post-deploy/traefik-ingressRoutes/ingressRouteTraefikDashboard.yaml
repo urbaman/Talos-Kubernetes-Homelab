@@ -32,6 +32,6 @@ spec:
       middlewares:
         - name: traefik-security
   tls:
-    secretName: traefik-domain-com
+    secretName: traefik-k8s-urbaman-cloud
     options:
       name: traefik-tlsoptions

@@ -24,7 +24,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik-k8s.urbaman.cloud`)
+      match: Host(`traefik-k8s.urbaman.cloud`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
       services:
         - kind: TraefikService
           name: api@internal

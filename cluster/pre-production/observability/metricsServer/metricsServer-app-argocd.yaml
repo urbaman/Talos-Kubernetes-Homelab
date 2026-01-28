@@ -28,7 +28,7 @@ spec:
     - kind: 'APIService'
       name: v1beta1.metrics.k8s.io
       jsonPointers:
-        - /spec/insecureSkipTLSVerify
+        - /spec
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system

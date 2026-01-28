@@ -7,7 +7,7 @@ spec:
   project: bootstrap
   sources:
     - repoURL: 'https://github.com/kubernetes-sigs/gateway-api.git'
-      targetRevision: v1.4.1
+      targetRevision: v1.4.0
       path: config/crd/standard
     - repoURL: https://helm.cilium.io/
       chart: cilium
@@ -22,19 +22,6 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/bootstrap/cilium/cilium-post-deploy
-  ignoreDifferences:
-    - kind: 'Secret'
-      name: cilium-ca
-      jsonPointers:
-        - /data
-    - kind: 'Secret'
-      name: hubble-relay-client-certs
-      jsonPointers:
-        - /data
-    - kind: 'Secret'
-      name: hubble-server-certs
-      jsonPointers:
-        - /data
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system

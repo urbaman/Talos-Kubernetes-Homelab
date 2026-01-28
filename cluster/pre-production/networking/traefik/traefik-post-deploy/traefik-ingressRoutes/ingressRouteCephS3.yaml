@@ -4,6 +4,7 @@ metadata:
   name: ceph-s3
   namespace: rook-ceph
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     # For Homepage service discovery
     gethomepage.dev/href: "https://ceph-s3.urbaman.cloud"
     gethomepage.dev/enabled: "true"

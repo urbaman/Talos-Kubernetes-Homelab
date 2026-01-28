@@ -3,6 +3,8 @@ kind: ServersTransport
 metadata:
   name: argocd
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   serverName: argocd
   insecureSkipVerify: true

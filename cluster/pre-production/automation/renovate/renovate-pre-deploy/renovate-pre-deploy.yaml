@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: renovate
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
 ---
 apiVersion: external-secrets.io/v1
 kind: ClusterExternalSecret
 metadata:
   name: renovate-env
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   externalSecretName: renovate-env
   namespaceSelectors:

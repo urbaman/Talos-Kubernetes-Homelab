@@ -4,6 +4,7 @@ metadata:
   name: argocd
   namespace: argocd
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     # For Homepage service discovery
     gethomepage.dev/href: "https://argocd.urbaman.cloud"
     gethomepage.dev/enabled: "true"

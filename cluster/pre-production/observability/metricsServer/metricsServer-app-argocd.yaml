@@ -24,6 +24,11 @@ spec:
 #    - repoURL: 'https://github.com/rancher/local-path-provisioner.git'
 #      targetRevision: v0.0.34
 #      path: deploy
+  ignoreDifferences:
+    - kind: 'APIService'
+      name: v1beta1.metrics.k8s.io
+      jsonPointers:
+        - /spec/insecureSkipTLSVerify
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system

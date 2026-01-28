@@ -22,6 +22,22 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/bootstrap/cilium/cilium-post-deploy
+  ignoreDifferences:
+    - group: ''
+      kind: 'Secret'
+      name: cilium-ca
+      jsonPointers:
+        - /data
+    - group: ''
+      kind: 'Secret'
+      name: hubble-relay-client-certs
+      jsonPointers:
+        - /data
+    - group: ''
+      kind: 'Secret'
+      name: hubble-server-certs
+      jsonPointers:
+        - /data
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system

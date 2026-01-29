@@ -17,7 +17,7 @@ spec:
   externalSecretName: grafana-admin-credentials
   namespaceSelectors:
   - matchLabels:      
-      kubernetes.io/metadata.name: argocd
+      kubernetes.io/metadata.name: monitoring
   refreshTime: "10s"
   externalSecretSpec:
     refreshInterval: "15s"

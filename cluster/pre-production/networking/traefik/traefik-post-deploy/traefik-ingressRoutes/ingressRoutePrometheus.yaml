@@ -1,0 +1,40 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus
+  namespace: monitoring
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    gethomepage.dev/href: "https://prometheus.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Prometheus Monitoring DB"
+    gethomepage.dev/group: Monitoring
+    gethomepage.dev/icon: prometheus.svg
+    gethomepage.dev/app: prometheus # optional, may be needed if app.kubernetes.io/name != ingress metadata.name
+    gethomepage.dev/name: "Prometheus"
+    #gethomepage.dev/showStats: "true"
+    gethomepage.dev/widget.type: "prometheus"
+    #gethomepage.dev/version: "2"
+    #gethomepage.dev/alerts: alertmanager
+    gethomepage.dev/widget.url: "https://prometheus.urbaman.cloud"
+    #gethomepage.dev/pod-selector: ""
+    #gethomepage.dev/weight: 10 # optional
+    #gethomepage.dev/instance: "public" # optional
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`prometheus.urbaman.cloud`)
+      services:
+      - name: kube-prometheus-stack-prometheus
+        port: 9090
+        serversTransport: prometheus
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: prometheus-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

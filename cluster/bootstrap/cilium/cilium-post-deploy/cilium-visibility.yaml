@@ -19,14 +19,16 @@ spec:
         endPort: 52
         protocol: TCP
       rules:
-        http: [{}]
+        http:
+        - {}
   - toPorts:
     - ports:
       - port: "54"
         endPort: 65535
         protocol: TCP
       rules:
-        http: [{}]
+        http:
+        - {}
   - toFQDNs:
     - matchPattern: '*'
   - toEntities:

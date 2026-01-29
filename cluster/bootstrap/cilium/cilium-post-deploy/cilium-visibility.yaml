@@ -17,14 +17,14 @@ spec:
     - ports:
       - port: "1"
         endPort: 52
-        protocol: ANY
+        protocol: TCP
       rules:
         http: [{}]
   - toPorts:
     - ports:
       - port: "54"
         endPort: 65535
-        protocol: ANY
+        protocol: TCP
       rules:
         http: [{}]
   - toFQDNs:

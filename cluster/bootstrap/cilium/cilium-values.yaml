@@ -1242,15 +1242,10 @@ hubble:
       - drop
       - tcp
       - flow
-      - port
-      - distribution
-      - icmp,
-      - httpV2:exemplars=true;labelsContext=source_ip\
-      - source_namespace\
-      - source_workload\
-      - destination_ip\
-      - destination_namespace\
-      - destination_workload\
+      - port-distribution
+      - icmp
+      - flows-to-world
+      - httpV2
       - traffic_direction
     # -- Enables exporting hubble metrics in OpenMetrics format.
     enableOpenMetrics: false

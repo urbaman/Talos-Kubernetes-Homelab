@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/observability/kubePrometheusStack/kubePrometheusStack-pre-deploy
+    - repoURL: https://prometheus-community.github.io/helm-chart
+      chart: kube-prometheus-stack
+      targetRevision: 81.3.0
+      helm:
+        releaseName: kube-prometheus-stack
+        valueFiles:
+        - $values/cluster/pre-production/observability/kubePrometheusStack/kubePrometheusStack-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: monitoring
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true

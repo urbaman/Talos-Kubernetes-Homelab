@@ -2187,7 +2187,7 @@ kubeEtcd:
   # - 10.141.4.22
   # - 10.141.4.23
   # - 10.141.4.24
-  endpooints:
+  endpoints:
     - 10.0.100.61
     - 10.0.100.62
     - 10.0.100.63
@@ -2202,8 +2202,8 @@ kubeEtcd:
       enabled: false
       ipFamilies: ["IPv6", "IPv4"]
       ipFamilyPolicy: "PreferDualStack"
-    #selector:
-    #  component: etcd
+    selector:
+      component: etcd
 
   ## Configure secure access to the etcd cluster by loading a secret into prometheus and
   ## specifying security configuration below. For example, with a secret named etcd-client-cert
@@ -2292,7 +2292,7 @@ kubeEtcd:
     ## File containing bearer token to be used when scraping targets
     ## Empty value do not send any bearer token.
     ##
-    #bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+    bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
 
 ## Component scraping kube scheduler
 ##

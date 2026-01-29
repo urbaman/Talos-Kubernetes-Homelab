@@ -1239,9 +1239,6 @@ grafana:
   enabled: true
   namespaceOverride: ""
 
-  nodeSelector:
-    workload: monitoring
-
   ## ForceDeployDatasources Create datasource configmap even if grafana deployment has been disabled
   ##
   forceDeployDatasources: false
@@ -1386,7 +1383,7 @@ grafana:
     persistence:
       enabled: true
       type: sts
-      storageClassName: "local-path"
+      storageClassName: "asustornas1-nfs-csi"
       accessModes:
         - ReadWriteOnce
       size: 20Gi

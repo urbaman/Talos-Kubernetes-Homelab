@@ -4,6 +4,7 @@ metadata:
   name: traefik-dashboard
   namespace: traefik
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     gethomepage.dev/href: "https://traefik-k8s.urbaman.cloud"
     gethomepage.dev/enabled: "true"
     gethomepage.dev/description: "Traefik Proxy Dashboard"

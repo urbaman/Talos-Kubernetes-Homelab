@@ -3,6 +3,8 @@ kind: Cluster
 metadata:
   name: cnpg-cluster-17-053
   namespace: cloudnative-pg
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   instances: 3
   affinity:

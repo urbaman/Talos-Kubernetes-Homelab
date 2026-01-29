@@ -4,6 +4,7 @@ metadata:
   name: cilium-hubble
   namespace: kube-system
   annotations:
+    argocd.argoproj.io/sync-wave: "1"
     # For Homepage service discovery
     gethomepage.dev/href: "https://cilium-hubble.urbaman.cloud"
     gethomepage.dev/enabled: "true"

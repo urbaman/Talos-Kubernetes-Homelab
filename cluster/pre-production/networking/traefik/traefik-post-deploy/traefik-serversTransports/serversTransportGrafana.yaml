@@ -1,10 +1,10 @@
 apiVersion: traefik.io/v1alpha1
 kind: ServersTransport
 metadata:
-  name: cilium-hubble
-  namespace: kube-system
+  name: grafana
+  namespace: monitoring
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  serverName: cilium-hubble
+  serverName: grafana
   insecureSkipVerify: true

@@ -3,6 +3,8 @@ kind: Certificate
 metadata:
   name: cilium-hubble-urbaman-cloud
   namespace: kube-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   # Certificate will be valid for these domain names
   dnsNames:

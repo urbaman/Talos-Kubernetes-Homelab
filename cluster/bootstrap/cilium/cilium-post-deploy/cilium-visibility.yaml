@@ -18,11 +18,15 @@ spec:
       - port: "1"
         endPort: 52
         protocol: ANY
+      rules:
+        http: [{}]
   - toPorts:
     - ports:
       - port: "54"
         endPort: 65535
         protocol: ANY
+      rules:
+        http: [{}]
   - toFQDNs:
     - matchPattern: '*'
   - toEntities:

@@ -25,3 +25,10 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - ServerSideApply=true
+#      - CreateNamespace=true

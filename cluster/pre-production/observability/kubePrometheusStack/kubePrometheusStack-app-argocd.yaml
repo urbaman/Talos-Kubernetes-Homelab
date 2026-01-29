@@ -9,7 +9,7 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/observability/kubePrometheusStack/kubePrometheusStack-pre-deploy
-    - repoURL: https://prometheus-community.github.io/helm-chart
+    - repoURL: https://prometheus-community.github.io/helm-charts
       chart: kube-prometheus-stack
       targetRevision: 81.3.0
       helm:

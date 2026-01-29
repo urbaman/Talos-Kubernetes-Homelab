@@ -1038,7 +1038,6 @@ alertmanager:
           resources:
             requests:
               storage: 50Gi
-          selector: {}
 
 
     ## The external URL the Alertmanager instances will be available under. This is necessary to generate correct URLs. This is necessary if Alertmanager is not served from root of a DNS name. string  false
@@ -1380,15 +1379,15 @@ grafana:
 
   # # To make Grafana persistent (Using Statefulset)
   # #
-    persistence:
-      enabled: true
-      type: pvc
-      storageClassName: "asustornas1-nfs-csi"
-      accessModes:
-        - ReadWriteOnce
-      size: 20Gi
-      finalizers:
-        - kubernetes.io/pvc-protection
+  persistence:
+    enabled: true
+    type: pvc
+    storageClassName: "asustornas1-nfs-csi"
+    accessModes:
+      - ReadWriteOnce
+    size: 20Gi
+    finalizers:
+      - kubernetes.io/pvc-protection
 
   serviceAccount:
     create: true
@@ -4390,7 +4389,6 @@ prometheus:
           resources:
             requests:
               storage: 50Gi
-          selector: {}
 
     ## Using tmpfs volume
     ##

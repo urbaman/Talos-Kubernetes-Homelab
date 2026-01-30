@@ -8279,7 +8279,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -8380,7 +8380,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -8481,7 +8481,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -8700,7 +8700,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -8828,7 +8828,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -8956,7 +8956,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {
@@ -9086,7 +9086,7 @@ data:
                                 "type": "prometheus",
                                 "uid": "${DS_PROMETHEUS}"
                               },
-                              "description": "The operator reconcile errors don't distinguish between database cluster or namespaces.",
+                              "description": "The operator reconcile errors do not distinguish between database cluster or namespaces.",
                               "fieldConfig": {
                                 "defaults": {
                                   "color": {

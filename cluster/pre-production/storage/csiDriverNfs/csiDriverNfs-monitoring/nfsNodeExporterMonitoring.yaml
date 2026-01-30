@@ -5,15 +5,13 @@ metadata:
   labels:
     app: asustornas1
   namespace: csi-driver-nfs
-addressType: IPv4
-endpoints:
+subsets:
 - addresses:
-  - 10.0.100.31 #IP of the loadbanacer for the cluster
-  nodeName: asustornas1
+  - ip: 10.0.100.31 #IP of the loadbanacer for the cluster
   ports:
-    - name: asustornas1
-      port: 9100
-      protocol: TCP
+  - name: asustornas1
+    port: 9100
+    protocol: TCP
 ---
 apiVersion: v1
 kind: Service

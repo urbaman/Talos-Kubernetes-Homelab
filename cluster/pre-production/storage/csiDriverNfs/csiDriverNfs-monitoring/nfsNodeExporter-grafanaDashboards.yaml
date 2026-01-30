@@ -282,47 +282,47 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='Create',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=Create,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsStat',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsStat,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetAttr',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetAttr,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Link',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Link,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lookup',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lookup,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='MkDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=MkDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Null',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Null,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Read',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Read,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v2 NFS Procedures Invoked 1\",\r\n
@@ -335,47 +335,47 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='ReadLink',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=ReadLink,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Remove',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Remove,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Rename',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Rename,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='RmDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=RmDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Root',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Root,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SetAttr',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SetAttr,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"O\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SymLink',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SymLink,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='WrCache',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=WrCache,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Write',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Write,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"R\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v2 NFS Procedures Invoked 2\",\r\n
@@ -391,42 +391,42 @@ data:
     256,\r\n          \"maxPerRow\": 12,\r\n          \"options\": {},\r\n          \"targets\":
     [\r\n            {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Create',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Create,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='FsStat',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=FsStat,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='GetAttr',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=GetAttr,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Link',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Link,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Lookup',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Lookup,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='MkDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=MkDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Read',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Read,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v2 NFSd Requests by Method 1\",\r\n
@@ -439,42 +439,42 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfsd_requests_total{method='ReadLink',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfsd_requests_total{method=ReadLink,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Remove',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Remove,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Rename',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Rename,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='RmDir',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=RmDir,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Root',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Root,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SetAttr',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SetAttr,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SymLink',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SymLink,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"O\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Write',proto='2',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Write,proto=2,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v2 NFSd Requests by Method 1\",\r\n
@@ -490,57 +490,57 @@ data:
     233,\r\n          \"maxPerRow\": 12,\r\n          \"options\": {},\r\n          \"targets\":
     [\r\n            {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Access',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Access,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Commit',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Commit,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Create',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Create,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsInfo',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsInfo,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsStat',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsStat,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetAttr',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetAttr,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Link',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Link,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lookup',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lookup,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='MkDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=MkDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='MkNod',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=MkNod,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Null',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Null,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v3 NFS Procedures Invoked 1\",\r\n
@@ -553,57 +553,57 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='PathConf',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=PathConf,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Read',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Read,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadDirPlus',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadDirPlus,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"O\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadLink',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadLink,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Rename',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Rename,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='RmDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=RmDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"R\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SetAttr',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SetAttr,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SymLink',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SymLink,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Write',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Write,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Remove',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Remove,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v3 NFS Procedures Invoked 2\",\r\n
@@ -619,57 +619,57 @@ data:
     251,\r\n          \"maxPerRow\": 12,\r\n          \"options\": {},\r\n          \"targets\":
     [\r\n            {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Access',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Access,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Commit',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Commit,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Create',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Create,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='FsInfo',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=FsInfo,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='FsStat',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=FsStat,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='GetAttr',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=GetAttr,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Link',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Link,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Lookup',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Lookup,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='MkDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=MkDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='MkNod',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=MkNod,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='PathConf',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=PathConf,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v3 NFSd Requests by Method 1\",\r\n
@@ -682,52 +682,52 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfsd_requests_total{method='Read',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfsd_requests_total{method=Read,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadDirPlus',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadDirPlus,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadLink',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadLink,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"O\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Remove',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Remove,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Rename',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Rename,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='RmDir',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=RmDir,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"R\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SetAttr',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SetAttr,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SymLink',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SymLink,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Write',proto='3',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Write,proto=3,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v3 NFSd Requests by Method 2\",\r\n
@@ -743,57 +743,57 @@ data:
     235,\r\n          \"maxPerRow\": 12,\r\n          \"options\": {},\r\n          \"targets\":
     [\r\n            {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Access',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Access,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Commit',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Commit,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Create',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Create,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsInfo',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsInfo,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetAttr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetAttr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Link',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Link,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lookup',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lookup,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Null',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Null,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Allocate',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Allocate,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='BindConnToSession',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=BindConnToSession,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Clone',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Clone,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 1\",\r\n
@@ -806,57 +806,57 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='PathConf',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=PathConf,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Read',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Read,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadDir',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadDir,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReadLink',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReadLink,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Rename',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Rename,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Setattr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Setattr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SymLink',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SymLink,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Write',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Write,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Close',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Close,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='CreateSession',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=CreateSession,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Read',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Read,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 2\",\r\n
@@ -869,52 +869,52 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='DeAllocate',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=DeAllocate,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='DelegReturn',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=DelegReturn,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='DestroyClientID',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=DestroyClientID,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='DestroySession',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=DestroySession,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ExchangeID',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ExchangeID,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FreeStateID',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FreeStateID,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsLocations',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsLocations,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='FsidPresent',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=FsidPresent,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetACL',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetACL,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetDeviceInfo',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetDeviceInfo,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 3\",\r\n
@@ -927,52 +927,52 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='GetDeviceList',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=GetDeviceList,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='GetLeaseTime',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=GetLeaseTime,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='LayoutCommit',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=LayoutCommit,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='LayoutGet',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=LayoutGet,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='LayoutReturn',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=LayoutReturn,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='LayoutStats',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=LayoutStats,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lock',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lock,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lockt',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lockt,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Locku',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Locku,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Lookup',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Lookup,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 4\",\r\n
@@ -985,52 +985,52 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='LookupRoot',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=LookupRoot,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Open',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Open,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='OpenConfirmt',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=OpenConfirmt,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='OpenDowngrade',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=OpenDowngrade,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='OpenNoattr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=OpenNoattr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReclaimComplete',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReclaimComplete,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ReleaseLockowner',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ReleaseLockowner,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Renew',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Renew,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Secinfo',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Secinfo,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SecinfoNoName',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SecinfoNoName,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 5\",\r\n
@@ -1043,42 +1043,42 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfs_requests_total{method='Seek',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfs_requests_total{method=Seek,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='Sequence',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=Sequence,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='ServerCaps',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=ServerCaps,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"N\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SetACL',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SetACL,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SetClientID',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SetClientID,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='SetClientIDConfirm',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=SetClientIDConfirm,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='StatFs',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=StatFs,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"T\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfs_requests_total{method='TestStateID',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfs_requests_total{method=TestStateID,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFS v4 NFS Procedures Invoked 6\",\r\n
@@ -1094,52 +1094,52 @@ data:
     253,\r\n          \"maxPerRow\": 12,\r\n          \"options\": {},\r\n          \"targets\":
     [\r\n            {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Access',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Access,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Commit',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Commit,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Create',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Create,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='GetAttr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=GetAttr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Link',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Link,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Lookup',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Lookup,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Close',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Close,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='DelegPurge',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=DelegPurge,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='DelegReturn',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=DelegReturn,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='GetFH',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=GetFH,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v4 NFSd Requests by Method 1\",\r\n
@@ -1152,52 +1152,52 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfsd_requests_total{method='Read',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfsd_requests_total{method=Read,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadDir',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadDir,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='ReadLink',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=ReadLink,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"O\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Remove',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Remove,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"P\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Rename',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Rename,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"Q\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SetAttr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SetAttr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"S\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Write',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Write,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"U\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Lock',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Lock,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Lockt',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Lockt,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Locku',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Locku,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v4 NFSd Requests by Method 2\",\r\n
@@ -1210,67 +1210,67 @@ data:
     12,\r\n          \"options\": {},\r\n          \"targets\": [\r\n            {\r\n
     \             \"datasource\": {\r\n                \"type\": \"prometheus\",\r\n
     \               \"uid\": \"prometheus\"\r\n              },\r\n              \"expr\":
-    \"rate(node_nfsd_requests_total{method='LookupRoot',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \"rate(node_nfsd_requests_total{method=LookupRoot,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"L\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Nverify',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Nverify,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"A\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Open',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Open,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"B\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='OpenAttr',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=OpenAttr,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"C\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='OpenConfirm',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=OpenConfirm,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"D\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='OpenDgrd',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=OpenDgrd,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"E\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='PutFH',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=PutFH,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"F\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='RelLockOwner',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=RelLockOwner,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"G\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Renew',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Renew,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"H\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='RestoreFH',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=RestoreFH,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"I\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SaveFH',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SaveFH,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"J\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='SecInfo',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=SecInfo,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"K\",\r\n              \"step\": 240\r\n            },\r\n
     \           {\r\n              \"datasource\": {\r\n                \"type\":
     \"prometheus\",\r\n                \"uid\": \"prometheus\"\r\n              },\r\n
-    \             \"expr\": \"rate(node_nfsd_requests_total{method='Verify',proto='4',instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
+    \             \"expr\": \"rate(node_nfsd_requests_total{method=Verify,proto=4,instance=~\\\"$node:$port\\\",job=~\\\"$job\\\"}[$__rate_interval])\",\r\n
     \             \"intervalFactor\": 1,\r\n              \"legendFormat\": \"{{ method
     }}\",\r\n              \"refId\": \"M\",\r\n              \"step\": 240\r\n            }\r\n
     \         ],\r\n          \"title\": \"NFSd v4 NFSd Requests by Method 3\",\r\n

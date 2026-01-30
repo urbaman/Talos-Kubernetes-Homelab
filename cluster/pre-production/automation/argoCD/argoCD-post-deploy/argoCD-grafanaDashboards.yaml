@@ -8,7 +8,7 @@ metadata:
   name: argocd
   namespace: argocd
 data:
-  pod-total.json: '{
+  argocd.json: '{
                       "annotations": {
                         "list": [
                           {

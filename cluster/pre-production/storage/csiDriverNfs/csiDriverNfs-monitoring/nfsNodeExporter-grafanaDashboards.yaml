@@ -7,7 +7,7 @@ metadata:
   namespace: csi-driver-nfs
 
 data:
-  asustornas1.json: '{
+  asustornas1.json: "{
                       "annotations": {
                         "list": [
                           {
@@ -4459,4 +4459,4 @@ data:
                       "uid": "ffd70f05-6910-4a2c-81ef-32a73cfc42a6",
                       "version": 3,
                       "weekStart": ""
-                    }'
+                    }"

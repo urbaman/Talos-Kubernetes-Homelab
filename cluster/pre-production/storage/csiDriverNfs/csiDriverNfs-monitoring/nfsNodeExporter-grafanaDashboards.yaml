@@ -6,7 +6,7 @@ metadata:
   labels:
     grafana_dashboard: "1"
 data:
-  dashboard.json: "{\r\n  \"annotations\": {\r\n    \"list\": [\r\n      {\r\n        \"builtIn\":
+  dashboard.json: '{\r\n  \"annotations\": {\r\n    \"list\": [\r\n      {\r\n        \"builtIn\":
     1,\r\n        \"datasource\": {\r\n          \"type\": \"grafana\",\r\n          \"uid\":
     \"-- Grafana --\"\r\n        },\r\n        \"enable\": true,\r\n        \"hide\":
     true,\r\n        \"iconColor\": \"rgba(0, 211, 255, 1)\",\r\n        \"name\":
@@ -1301,4 +1301,4 @@ data:
     \       \"sort\": 3,\r\n        \"type\": \"query\"\r\n      }\r\n    ]\r\n  },\r\n
     \ \"time\": {\r\n    \"from\": \"now-24h\",\r\n    \"to\": \"now\"\r\n  },\r\n
     \ \"timepicker\": {},\r\n  \"timezone\": \"browser\",\r\n  \"title\": \"NFS\",\r\n
-    \ \"uid\": \"ffd70f05-6910-4a2c-81ef-32a73cfc42a6\",\r\n  \"version\": 1\r\n}"
+    \ \"uid\": \"ffd70f05-6910-4a2c-81ef-32a73cfc42a6\",\r\n  \"version\": 1\r\n}'

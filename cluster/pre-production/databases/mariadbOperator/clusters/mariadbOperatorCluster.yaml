@@ -90,3 +90,5 @@ spec:
     workload: database
   tls:
     enabled: true
+  metrics:
+    enabled: true

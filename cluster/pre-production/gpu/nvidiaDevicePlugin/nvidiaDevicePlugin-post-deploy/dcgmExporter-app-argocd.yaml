@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dcgm-exporter
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  project: pre-prod
+  sources:
+    - repoURL: https://nvidia.github.io/dcgm-exporter/helm-charts
+      chart: dcgm-exporter
+      targetRevision: 4.7.1
+      helm:
+        releaseName: dcgm-exporter
+        valueFiles:
+        - $values/cluster/pre-production/gpu/nvidiaDevicePlugin/nvidiaDevicePlugin-post-deploy/dcgmExporter-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: nvidia-device-plugin
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

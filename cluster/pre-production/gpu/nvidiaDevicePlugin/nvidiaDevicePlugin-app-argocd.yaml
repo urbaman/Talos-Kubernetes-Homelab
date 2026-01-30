@@ -4,7 +4,7 @@ metadata:
   name: nvidia-device-plugin
   namespace: argocd
 spec:
-  project: bootstrap
+  project: pre-prod
   sources:
     - repoURL: https://nvidia.github.io/k8s-device-plugin
       chart: nvidia-device-plugin

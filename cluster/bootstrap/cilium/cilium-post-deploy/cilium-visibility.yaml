@@ -10,6 +10,9 @@ spec:
     - matchLabels:
        "k8s:io.kubernetes.pod.namespace": kube-system
        "k8s:k8s-app": kube-dns
+    - matchLabels:
+        "k8s:io.kubernetes.pod.namespace": kube-system
+        "k8s:k8s-app": kube-dns
     toPorts:
     - ports:
       - port: "53"
@@ -33,8 +36,8 @@ spec:
 #      rules:
 #        http:
 #        - {}
-  - toFQDNs:
-    - matchPattern: '*'
-  - toEntities:
-    - cluster
-    - world
+#  - toFQDNs:
+#    - matchPattern: '*'
+#  - toEntities:
+#    - cluster
+#    - world

@@ -9,7 +9,7 @@ addressType: IPv4
 endpoints:
 - addresses:
   - 10.0.100.31 #IP of the loadbanacer for the cluster
-    nodeName: asustornas1
+  nodeName: asustornas1
   ports:
     - name: asustornas1
       port: 9100

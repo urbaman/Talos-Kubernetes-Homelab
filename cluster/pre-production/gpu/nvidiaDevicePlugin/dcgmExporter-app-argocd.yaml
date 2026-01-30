@@ -14,7 +14,7 @@ spec:
       helm:
         releaseName: dcgm-exporter
         valueFiles:
-        - $values/cluster/pre-production/gpu/nvidiaDevicePlugin/nvidiaDevicePlugin-post-deploy/dcgmExporter-values.yaml
+        - $values/cluster/pre-production/gpu/nvidiaDevicePlugin/dcgmExporter-values.yaml
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values

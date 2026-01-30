@@ -1,0 +1,49 @@
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: asustornas1
+  labels:
+    app: asustornas1
+  namespace: csi-driver-nfs
+addressType: IPv4
+endpoints:
+- addresses:
+  - 10.0.100.31 #IP of the loadbanacer for the cluster
+    nodeName: asustornas1
+ports:
+  - name: asustornas1
+    port: 9100
+    protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: asustornas1
+  labels:
+    app: asustornas1
+  namespace: csi-driver-nfs
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - name: asustornas1
+    port: 9100
+    targetPort: 9100
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: asustornas1
+  namespace: csi-driver-nfs
+  labels:
+    app: asustornas1
+spec:
+  endpoints:
+  - interval: 30s
+    port: asustornas1
+    scheme: http
+    path: "/metrics"
+  jobLabel: asustornas1
+  selector:
+    matchLabels:
+      app: asustornas1

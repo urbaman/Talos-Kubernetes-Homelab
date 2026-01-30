@@ -7,7 +7,7 @@ spec:
   project: bootstrap
   sources:
     - repoURL: 'https://github.com/kubernetes-sigs/gateway-api.git'
-      targetRevision: v1.4.0
+      targetRevision: v1.4.1
       path: config/crd/standard
     - repoURL: https://helm.cilium.io/
       chart: cilium

@@ -19,6 +19,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/valkey/monitoring
   destination:
     server: "https://kubernetes.default.svc"
     namespace: valkey
@@ -28,3 +31,4 @@ spec:
 #        pod-security.kubernetes.io/enforce: privileged
     syncOptions:
     - CreateNamespace=true
+    - ServerSideApply=true

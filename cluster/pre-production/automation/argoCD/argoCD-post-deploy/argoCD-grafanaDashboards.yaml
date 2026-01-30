@@ -5,8 +5,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
   labels:
     grafana_dashboard: "1"
-  name: argo-cd
-  namespace: argo-cd
+  name: argocd
+  namespace: argocd
 data:
   pod-total.json: '{
                       "annotations": {

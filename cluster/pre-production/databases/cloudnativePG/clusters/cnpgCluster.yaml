@@ -45,5 +45,5 @@ spec:
     storageClass: local-path
 
   # Add podMonitor for prometheus monitoring (remember to disable labels scraping in kube-prometheus-stack - podMonitorSelectorNilUsesHelmValues: false)
-  #monitoring:
-  #  enablePodMonitor: true
+  monitoring:
+    enablePodMonitor: true

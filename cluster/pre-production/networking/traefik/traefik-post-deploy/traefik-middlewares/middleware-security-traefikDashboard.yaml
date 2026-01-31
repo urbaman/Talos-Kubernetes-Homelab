@@ -17,11 +17,11 @@ spec:
     customFrameOptionsValue: "SAMEORIGIN"
     contentSecurityPolicy: >-
       default-src 'self';
-      script-src 'self' 'sha256-MWo9qldOwFtivMvfCrZODNWK5+91Xo9tWkDCf8ygRdU=' https://traefik-k8s.urbaman.cloud;
+      script-src 'self';
       connect-src 'self' https://traefik.github.io/hub-ui-demo-app/config/routes.json https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js https://traefik.github.io/hub-ui-demo-app/config/routes.json.sig https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js.sig;
       img-src 'self';
       worker-src 'self' https://traefik-k8s.urbaman.cloud/dashboard/assets/scriptVerificationWorker-Dwvp20Ax.js;
-      style-src 'self';
+      style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';
       object-src 'self';
       base-uri 'self';
       frame-ancestors 'self';

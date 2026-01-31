@@ -27,7 +27,7 @@ spec:
           port: 8443
           serversTransport: ceph-dashboard
       middlewares:
-        - name: security-ceph-dashboard
+        - name: security
           namespace: traefik
   tls:
     secretName: ceph-dashboard-urbaman-cloud

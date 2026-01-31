@@ -17,7 +17,7 @@ spec:
     customFrameOptionsValue: "SAMEORIGIN"
     contentSecurityPolicy: >-
       default-src 'self';
-      script-src 'unsafe-inline' 'strict-dynamic' https://traefik-k8s.urbaman.cloud/dashboard/assets/index-Cn5NaOnq.js;
+      script-src 'unsafe-inline' 'strict-dynamic' https://traefik-k8s.urbaman.cloud/dashboard/assets/index-Cn5NaOnq.js https://traefik-k8s.urbaman.cloud/dashboard/#/;
       connect-src 'self' https://traefik.github.io/hub-ui-demo-app/config/routes.json https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js https://traefik.github.io/hub-ui-demo-app/config/routes.json.sig https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js.sig;
       img-src 'self';
       worker-src 'self' https://traefik-k8s.urbaman.cloud/dashboard/assets/scriptVerificationWorker-Dwvp20Ax.js;

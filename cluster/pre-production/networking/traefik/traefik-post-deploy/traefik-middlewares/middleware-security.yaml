@@ -17,7 +17,7 @@ spec:
     customFrameOptionsValue: "SAMEORIGIN"
     contentSecurityPolicy: >-
       default-src 'self';
-      script-src 'self';
+      script-src 'self' 'sha256-MWo9qldOwFtivMvfCrZODNWK5+91Xo9tWkDCf8ygRdU=';
       connect-src 'self';
       img-src 'self';
       style-src 'self' 'unsafe-inline';

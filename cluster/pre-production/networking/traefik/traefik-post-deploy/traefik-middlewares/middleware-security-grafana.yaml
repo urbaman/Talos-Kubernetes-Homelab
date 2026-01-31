@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: security
+  name: security-grafana
   namespace: traefik
   annotations:
     argocd.argoproj.io/sync-wave: "1"
@@ -23,7 +23,7 @@ spec:
       style-src 'self' 'unsafe-inline';
       object-src 'none';
       base-uri 'none';
-      frame-ancestors 'none';
+      frame-ancestors 'self' https://ceph-dashboard.urbaman.cloud;
     customResponseHeaders:
       server: ""
       x-powered-by: ""

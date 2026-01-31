@@ -1,7 +1,7 @@
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
-  name: security
+  name: security-ceph-dashboard
   namespace: traefik
   annotations:
     argocd.argoproj.io/sync-wave: "1"

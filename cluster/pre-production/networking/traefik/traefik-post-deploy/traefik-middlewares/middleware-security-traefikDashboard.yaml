@@ -22,9 +22,9 @@ spec:
       img-src 'self';
       worker-src 'self' https://traefik-k8s.urbaman.cloud/dashboard/assets/scriptVerificationWorker-Dwvp20Ax.js;
       style-src 'self' 'unsafe-inline';
-      object-src 'none';
-      base-uri 'none';
-      frame-ancestors 'none';
+      object-src 'self';
+      base-uri 'self';
+      frame-ancestors 'self';
     customResponseHeaders:
       server: ""
       x-powered-by: ""

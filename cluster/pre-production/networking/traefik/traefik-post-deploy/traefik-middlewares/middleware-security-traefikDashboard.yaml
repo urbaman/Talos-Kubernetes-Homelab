@@ -18,8 +18,9 @@ spec:
     contentSecurityPolicy: >-
       default-src 'self';
       script-src 'self' 'sha256-MWo9qldOwFtivMvfCrZODNWK5+91Xo9tWkDCf8ygRdU=';
-      connect-src 'self' https://traefik.github.io/hub-ui-demo-app/config/routes.json;
+      connect-src 'self' https://traefik.github.io/hub-ui-demo-app/config/routes.json https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js.sig;
       img-src 'self';
+      worker-src 'self' https://traefik-k8s.urbaman.cloud/dashboard/assets/scriptVerificationWorker-Dwvp20Ax.js;
       style-src 'self' 'unsafe-inline';
       object-src 'none';
       base-uri 'none';

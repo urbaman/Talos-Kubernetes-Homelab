@@ -33,7 +33,7 @@ spec:
         port: 80
         serversTransport: grafana
       middlewares:
-        - name: security
+        - name: security-grafana
           namespace: traefik
   tls:
     secretName: grafana-urbaman-cloud

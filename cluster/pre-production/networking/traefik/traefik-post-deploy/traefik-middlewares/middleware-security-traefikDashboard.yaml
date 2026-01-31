@@ -17,7 +17,7 @@ spec:
     customFrameOptionsValue: "SAMEORIGIN"
     contentSecurityPolicy: >-
       default-src 'self';
-      script-src 'self' 'sha256-MWo9qldOwFtivMvfCrZODNWK5+91Xo9tWkDCf8ygRdU=';
+      script-src 'self' 'sha256-MWo9qldOwFtivMvfCrZODNWK5+91Xo9tWkDCf8ygRdU=' https://traefik-k8s.urbaman.cloud/7b80f95d-5b5a-4cc1-a094-e615e0de2442;
       connect-src 'self' https://traefik.github.io/hub-ui-demo-app/config/routes.json https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js https://traefik.github.io/hub-ui-demo-app/config/routes.json.sig https://traefik.github.io/traefiklabs-hub-button-app/main-v1.js.sig;
       img-src 'self';
       worker-src 'self' https://traefik-k8s.urbaman.cloud/dashboard/assets/scriptVerificationWorker-Dwvp20Ax.js;

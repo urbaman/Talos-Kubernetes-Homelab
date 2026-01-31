@@ -15,15 +15,6 @@ spec:
     stsPreload: true
     stsSeconds: 31536000
     customFrameOptionsValue: "ALLOW-FROM https://grafana.urbaman.cloud"
-    contentSecurityPolicy: >-
-      default-src 'self';
-      script-src 'self';
-      connect-src 'self';
-      img-src 'self';
-      style-src 'self' 'unsafe-inline';
-      object-src 'none';
-      base-uri 'none';
-      frame-ancestors 'none';
     customResponseHeaders:
       server: ""
       x-powered-by: ""

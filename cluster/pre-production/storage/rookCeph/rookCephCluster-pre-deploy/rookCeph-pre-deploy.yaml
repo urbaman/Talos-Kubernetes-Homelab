@@ -1,0 +1,57 @@
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: rook-ceph-monitoring-credentials
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: rook-ceph-monitoring-credentials
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: rook-ceph
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: rook-ceph-monitoring-credentials # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: ALERTMANAGER_API_HOST # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/rook-ceph-monitoring-credentials # Path to the secret
+          metadataPolicy: None
+          property: ALERTMANAGER_API_HOST # Key of the Vault secret to copy
+      - secretKey: GRAFANA_API_PASSWORD # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/rook-ceph-monitoring-credentials # Path to the secret
+          metadataPolicy: None
+          property: GRAFANA_API_PASSWORD # Key of the Vault secret to copy
+      - secretKey: GRAFANA_API_USERNAME # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/rook-ceph-monitoring-credentials # Path to the secret
+          metadataPolicy: None
+          property: GRAFANA_API_USERNAME # Key of the Vault secret to copy
+      - secretKey: GRAFANA_API_URL # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/rook-ceph-monitoring-credentials # Path to the secret
+          metadataPolicy: None
+          property: GRAFANA_API_URL # Key of the Vault secret to copy
+      - secretKey: PROMETHEUS_API_HOST # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/rook-ceph-monitoring-credentials # Path to the secret
+          metadataPolicy: None
+          property: PROMETHEUS_API_HOST # Key of the Vault secret to copy

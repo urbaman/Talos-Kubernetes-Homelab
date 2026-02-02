@@ -46,8 +46,7 @@ spec:
       template:
         spec:
           containers:
-            - name: mongodb
-              image: mongo:8.2.4
+            - name: mongod
               resources:
                 requests:
                   cpu: 500m

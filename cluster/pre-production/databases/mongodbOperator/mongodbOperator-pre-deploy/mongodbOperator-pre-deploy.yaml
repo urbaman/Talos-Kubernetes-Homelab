@@ -55,7 +55,7 @@ spec:
       name: openbao-backend
       kind: ClusterSecretStore
     target:
-      name: mongodb-auth # K8s secret name
+      name: mongodb-auth-prometheus # K8s secret name
       creationPolicy: Owner
     # To get single key/value(s)
     data:

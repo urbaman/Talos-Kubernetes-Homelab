@@ -27,9 +27,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/databases/mongodbOperator/clusters
-#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-#      targetRevision: HEAD
-#      path: cluster/pre-production/databases/mongodbOperator/monitoring
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/mongodbOperator/monitoring
   destination:
     server: "https://kubernetes.default.svc"
     namespace: mongodb

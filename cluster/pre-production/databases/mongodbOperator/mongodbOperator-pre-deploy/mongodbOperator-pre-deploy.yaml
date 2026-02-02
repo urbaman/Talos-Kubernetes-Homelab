@@ -29,10 +29,10 @@ spec:
       creationPolicy: Owner
     # To get single key/value(s)
     data:
-      - secretKey: password # Key to create in the K8s secret
+      - secretKey: admin-pwd # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
           key: talos-pve/mongodb-auth # Path to the secret
           metadataPolicy: None
-          property: password # Key of the Vault secret to copy
+          property: admin-pwd # Key of the Vault secret to copy

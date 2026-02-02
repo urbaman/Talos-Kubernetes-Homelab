@@ -19,6 +19,7 @@ spec:
       db: admin
       passwordSecretRef:
         name: mongodb-auth
+        key: admin
       roles:
         - name: clusterAdmin
           db: admin
@@ -26,6 +27,7 @@ spec:
           db: admin
         - name: readWriteAnyDatabase
           db: admin
+      scramCredentialsSecretName: mongodb-admin-scram-credentials
           
 #    - name: app-user
 #      db: admin

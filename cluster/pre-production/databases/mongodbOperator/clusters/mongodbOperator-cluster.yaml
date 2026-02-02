@@ -46,8 +46,8 @@ spec:
       template:
         spec:
           containers:
-#            - name: mongod
-            - resources:
+            - name: mongodb
+              resources:
                 requests:
                   cpu: 500m
                   memory: 1Gi

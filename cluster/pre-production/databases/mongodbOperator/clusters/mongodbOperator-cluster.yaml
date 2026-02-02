@@ -45,15 +45,15 @@ spec:
     spec:
       template:
         spec:
-          containers:
-            - name: mongod
-              resources:
-                requests:
-                  cpu: 500m
-                  memory: 1Gi
-                limits:
-                  cpu: 2000m
-                  memory: 4Gi
+#          containers:
+#            - name: mongod
+#              resources:
+#                requests:
+#                  cpu: 500m
+#                  memory: 1Gi
+#                limits:
+#                  cpu: 2000m
+#                  memory: 4Gi
                 
           nodeSelector:
             workload: database

@@ -19,7 +19,7 @@ spec:
       db: admin
       passwordSecretRef:
         name: mongodb-auth
-        key: admin
+        key: admin-pwd
       roles:
         - name: clusterAdmin
           db: admin

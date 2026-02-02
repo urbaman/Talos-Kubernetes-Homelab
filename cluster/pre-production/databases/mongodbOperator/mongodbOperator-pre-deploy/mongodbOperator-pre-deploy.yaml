@@ -36,3 +36,40 @@ spec:
           key: talos-pve/mongodb-auth # Path to the secret
           metadataPolicy: None
           property: admin-pwd # Key of the Vault secret to copy
+---
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: mongodb-auth-prometheus
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: mongodb-auth-prometheus
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: mongodb
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: mongodb-auth # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: username # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/mongodb-auth-prometheus # Path to the secret
+          metadataPolicy: None
+          property: username # Key of the Vault secret to copy
+      - secretKey: password # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/mongodb-auth-prometheus # Path to the secret
+          metadataPolicy: None
+          property: password # Key of the Vault secret to copy

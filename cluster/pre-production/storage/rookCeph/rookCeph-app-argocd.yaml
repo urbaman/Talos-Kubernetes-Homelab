@@ -13,11 +13,11 @@ spec:
       targetRevision: v1.19.0
       helm:
         releaseName: rook-ceph
-#        valueFiles:
-#        - $values/cluster/pre-production/externalSecretsOperator/eso-values.yaml
-#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-#      targetRevision: HEAD
-#      ref: values
+        valueFiles:
+        - $values/cluster/pre-production/storage/rookCeph/rookCeph-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rook-ceph

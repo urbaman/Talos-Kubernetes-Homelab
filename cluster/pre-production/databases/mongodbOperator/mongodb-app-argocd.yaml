@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongodb
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/mongodbOperator/mongodbOperator-pre-deploy
+    - repoURL: 'https://github.com/mongodb/mongodb-kubernetes.git'
+      targetRevision: HEAD
+      path: /public/crds.yaml
+    - repoURL: https://mongodb.github.io/helm-charts
+      chart: mongodb-kubernetes
+      targetRevision: 1.6.1
+      helm:
+        releaseName: mongodb-operator
+        valueFiles:
+        - $values/cluster/pre-production/databases/mongodbOperator/mongodb-operator-values.yaml
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      ref: values
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      path: cluster/pre-production/databases/mongodbOperator/monitoring
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      path: cluster/pre-production/databases/mongodbOperator/clusters
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: mongodb
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+    - CreateNamespace=true
+    - ServerSideApply=true

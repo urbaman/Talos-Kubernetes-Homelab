@@ -11,7 +11,7 @@ spec:
       path: cluster/pre-production/databases/mongodbOperator/mongodbOperator-pre-deploy
     - repoURL: 'https://github.com/mongodb/mongodb-kubernetes.git'
       targetRevision: HEAD
-      path: /public
+      path: public
       directory:
         include: crds.yaml
     - repoURL: https://mongodb.github.io/helm-charts

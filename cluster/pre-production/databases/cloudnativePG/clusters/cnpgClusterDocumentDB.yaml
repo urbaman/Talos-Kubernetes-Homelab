@@ -1,0 +1,99 @@
+
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: cnpg-cluster-documentdb-superuser-secret
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: cnpg-cluster-documentdb-superuser-secret
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: cloudnative-pg
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: cnpg-cluster-documentdb-superuser-secret # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: username # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/cnpg-cluster-documentdb-superuser-secret # Path to the secret
+          metadataPolicy: None
+          property: username # Key of the Vault secret to copy
+      - secretKey: password # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/cnpg-cluster-documentdb-superuser-secret # Path to the secret
+          metadataPolicy: None
+          property: password # Key of the Vault secret to copy
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cnpg-cluster-documentdb
+  namespace: cloudnative-pg
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  instances: 3
+  affinity:
+    podAntiAffinityType: required
+    nodeSelector:
+      workload: database
+  imageName: ghcr.io/ferretdb/postgres-documentdb:17 # This is to DocumentDB
+  postgresUID: 999
+  postgresGID: 999
+  enableSuperuserAccess: true
+
+  superuserSecret:
+    name: cnpg-cluster-documentdb-superuser-secret
+
+  # Example of rolling update strategy:
+  # - unsupervised: automated update of the primary once all
+  #                 replicas have been upgraded (default)
+  # - supervised: requires manual supervision to perform
+  #               the switchover of the primary
+  primaryUpdateStrategy: unsupervised
+
+  # Roles (db usernames)
+  #managed:
+  #  roles:
+  #  - name: <username>
+  #    login: true
+  #    passwordSecret:
+  #      name: <cluster-name>-<username>
+
+  # This is to enable DocumentDB
+  postgresql:
+    shared_preload_libraries:
+      - pg_cron
+      - pg_documentdb_core
+      - pg_documentdb
+    parameters:
+      cron.database_name: 'postgres'
+
+  bootstrap:
+    initdb:
+      postInitSQL:
+        - 'CREATE EXTENSION IF NOT EXISTS documentdb CASCADE;'
+
+  # Persistent storage configuration
+  storage:
+    size: 15Gi
+    storageClass: local-path
+  walStorage:
+    size: 15Gi
+    storageClass: local-path
+
+  # Add podMonitor for prometheus monitoring (remember to disable labels scraping in kube-prometheus-stack - podMonitorSelectorNilUsesHelmValues: false)
+  monitoring:
+    enablePodMonitor: true

@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: security
+  namespace: argocd
+spec:
+  project: pre-prod
+  sources:
+#    - repoURL: https://charts.external-secrets.io
+#      chart: external-secrets
+#      targetRevision: 1.2.1
+#      helm:
+#        releaseName: external-secrets
+#        valueFiles:
+#        - $values/cluster/pre-production/externalSecretsOperator/eso-values.yaml
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      ref: values
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/security
+      directory:
+        include: '*app-argocd*'
+        recurse: true
+  destination:
+    server: "https://kubernetes.default.svc"
+#    namespace: local-path-storage
+#  syncPolicy:
+#    syncOptions:
+#      - CreateNamespace=true
+#      - ServerSideApply=true

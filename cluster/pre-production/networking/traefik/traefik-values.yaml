@@ -874,6 +874,8 @@ ports:
           to: websecure
           scheme: https
           permanent: true
+      middlewares:  # @schema type: [array, null]
+        - traefik-crowdsec-bouncer@kubernetescrd
     forwardedHeaders:
       # -- Trust forwarded headers information (X-Forwarded-*).
       trustedIPs:
@@ -942,8 +944,6 @@ ports:
       tracing:  # @schema type:[boolean, null]; default: true
       # -- Defines the tracing verbosity level for this entryPoint.
       traceVerbosity:  # @schema enum:[minimal, detailed, null]; type:[string, null]; default: minimal
-    middlewares:  # @schema type: [array, null]
-      - traefik-crowdsec-bouncer@kubernetescrd
   websecure:
     ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
     # asDefault: true
@@ -977,7 +977,8 @@ ports:
       # -- Maximum size of request headers in bytes. Default: 1048576 (1 MB)
       maxHeaderBytes:  # @schema type:[integer, null]; minimum:0
       # -- See [upstream documentation](https://doc.traefik.io/traefik/reference/install-configuration/entrypoints/#httpmiddlewares)
-      middlewares: []  # @schema type: [array, null]
+      middlewares:  # @schema type: [array, null]
+        - traefik-crowdsec-bouncer@kubernetescrd
       # -- See [upstream documentation](https://doc.traefik.io/traefik/security/request-path/#path-sanitization)
       sanitizePath:  # @schema type:[boolean, null]
       tls:
@@ -1063,8 +1064,6 @@ ports:
       tracing:  # @schema type:[boolean, null]; default: true
       # -- Defines the tracing verbosity level for this entryPoint.
       traceVerbosity:  # @schema enum:[minimal, detailed, null]; type:[string, null]; default: minimal
-    middlewares:  # @schema type: [array, null]
-      - traefik-crowdsec-bouncer@kubernetescrd
   metrics:
     # -- When using hostNetwork, use another port to avoid conflict with node exporter:
     # https://github.com/prometheus/prometheus/wiki/Default-port-allocations

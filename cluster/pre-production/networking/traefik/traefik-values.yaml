@@ -875,7 +875,7 @@ ports:
           scheme: https
           permanent: true
       middlewares:  # @schema type: [array, null]
-        - traefik-crowdsec-bouncer@kubernetescrd
+        - crowdsec-bouncer@kubernetescrd
     forwardedHeaders:
       # -- Trust forwarded headers information (X-Forwarded-*).
       trustedIPs:
@@ -978,7 +978,7 @@ ports:
       maxHeaderBytes:  # @schema type:[integer, null]; minimum:0
       # -- See [upstream documentation](https://doc.traefik.io/traefik/reference/install-configuration/entrypoints/#httpmiddlewares)
       middlewares:  # @schema type: [array, null]
-        - traefik-crowdsec-bouncer@kubernetescrd
+        - crowdsec-bouncer@kubernetescrd
       # -- See [upstream documentation](https://doc.traefik.io/traefik/security/request-path/#path-sanitization)
       sanitizePath:  # @schema type:[boolean, null]
       tls:

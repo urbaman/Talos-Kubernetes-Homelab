@@ -2802,7 +2802,7 @@ tls:
 #   - vxlan
 #   - geneve
 # @default -- `"vxlan"`
-tunnelProtocol: ""
+tunnelProtocol: "geneve"
 # -- IP family for the underlay.
 # @default -- `"ipv4"`
 underlayProtocol: ""
@@ -2812,7 +2812,7 @@ underlayProtocol: ""
 #   - native
 #   - tunnel
 # @default -- `"tunnel"`
-routingMode: "native"
+routingMode: ""
 # -- Configure VXLAN and Geneve tunnel port.
 # @default -- Port 8472 for VXLAN, Port 6081 for Geneve
 tunnelPort: 0

@@ -9,7 +9,7 @@ spec:
   externalSecretName: cnpg-cluster-17-053-crowdsec
   namespaceSelectors:
   - matchLabels:      
-      kubernetes.io/metadata.name: crowdsec
+      kubernetes.io/metadata.name: cloudnative-pg
   refreshTime: "10s"
   externalSecretSpec:
     refreshInterval: "15s"

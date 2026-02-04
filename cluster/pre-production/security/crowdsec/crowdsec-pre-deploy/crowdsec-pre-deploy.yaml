@@ -52,3 +52,17 @@ spec:
           key: talos-pve/crowdsec-keys # Path to the secret
           metadataPolicy: None
           property: BOUNCER_KEY_traefik # Key of the Vault secret to copy
+      - secretKey: TELEGRAM_CHAT_ID # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: TELEGRAM_CHAT_ID # Key of the Vault secret to copy
+      - secretKey: TELEGRAM_BOT_TOKEN # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: TELEGRAM_BOT_TOKEN # Key of the Vault secret to copy

@@ -2251,7 +2251,7 @@ loadBalancer:
   acceleration: disabled
   # -- dsrDispatch configures whether IP option (opt), IPIP encapsulation (ipip),
   # Geneve Class Option (geneve) used to pass a service IP and port to remote backend
-  dsrDispatch: opt
+  dsrDispatch: geneve
 
   # -- serviceTopology enables K8s Topology Aware Hints -based service
   # endpoints filtering
@@ -2812,7 +2812,7 @@ underlayProtocol: ""
 #   - native
 #   - tunnel
 # @default -- `"tunnel"`
-routingMode: ""
+routingMode: "native"
 # -- Configure VXLAN and Geneve tunnel port.
 # @default -- Port 8472 for VXLAN, Port 6081 for Geneve
 tunnelPort: 0

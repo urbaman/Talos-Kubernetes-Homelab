@@ -942,6 +942,8 @@ ports:
       tracing:  # @schema type:[boolean, null]; default: true
       # -- Defines the tracing verbosity level for this entryPoint.
       traceVerbosity:  # @schema enum:[minimal, detailed, null]; type:[string, null]; default: minimal
+    middlewares:  # @schema type: [array, null]
+      - traefik-crowdsec-bouncer@kubernetescrd
   websecure:
     ## -- Enable this entrypoint as a default entrypoint. When a service doesn't explicitly set an entrypoint it will only use this entrypoint.
     # asDefault: true
@@ -1061,6 +1063,8 @@ ports:
       tracing:  # @schema type:[boolean, null]; default: true
       # -- Defines the tracing verbosity level for this entryPoint.
       traceVerbosity:  # @schema enum:[minimal, detailed, null]; type:[string, null]; default: minimal
+    middlewares:  # @schema type: [array, null]
+      - traefik-crowdsec-bouncer@kubernetescrd
   metrics:
     # -- When using hostNetwork, use another port to avoid conflict with node exporter:
     # https://github.com/prometheus/prometheus/wiki/Default-port-allocations

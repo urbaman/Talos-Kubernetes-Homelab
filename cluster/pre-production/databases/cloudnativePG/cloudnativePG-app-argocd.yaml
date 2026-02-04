@@ -19,9 +19,9 @@ spec:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/databases/cloudnativePG/clusters
-#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
-#      targetRevision: HEAD
-#      path: cluster/pre-production/databases/cloudnativePG/databases
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/pre-production/databases/cloudnativePG/databases
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
       path: cluster/pre-production/databases/cloudnativePG/monitoring

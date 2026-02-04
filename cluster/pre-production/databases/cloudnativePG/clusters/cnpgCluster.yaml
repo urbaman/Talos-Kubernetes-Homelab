@@ -1,10 +1,48 @@
+
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: cnpg-cluster-17-053-crowdsec
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: cnpg-cluster-17-053-crowdsec
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: crowdsec
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: cnpg-cluster-17-053-crowdsec # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: username # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/cnpg-cluster-17-053-crowdsec # Path to the secret
+          metadataPolicy: None
+          property: username # Key of the Vault secret to copy
+      - secretKey: password # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/cnpg-cluster-17-053-crowdsec # Path to the secret
+          metadataPolicy: None
+          property: password # Key of the Vault secret to copy
+---
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: cnpg-cluster-17-053
   namespace: cloudnative-pg
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   instances: 3
   affinity:
@@ -21,12 +59,14 @@ spec:
   primaryUpdateStrategy: unsupervised
 
   # Roles (db usernames)
-  #managed:
-  #  roles:
-  #  - name: <username>
-  #    login: true
-  #    passwordSecret:
-  #      name: <cluster-name>-<username>
+  managed:
+    roles:
+    - name: crowdsec
+      login: true
+      ensure: present
+      superuser: false
+      passwordSecret:
+        name: cnpg-cluster-17-053-crowdsec
 
   # This is to enable Immich (see Immich deploy to enable db extensions)
   postgresql:

@@ -18,7 +18,7 @@ spec:
       timeoutSeconds: 3600
   ports:
   - name: http
-    port: 5000
+    port: 80
   selector:
     app: excalidraw
 ---
@@ -46,15 +46,14 @@ spec:
         imagePullPolicy: IfNotPresent
         name: excalidraw
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         env:
         - name: TZ
           value: Europe/Rome
         livenessProbe:
           httpGet:
             path: /
-            port: 5000
-            scheme: HTTPS
+            port: 80
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -63,8 +62,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 5000
-            scheme: HTTPS
+            port: 80
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -119,7 +117,7 @@ spec:
       match: Host(`excalidraw.urbaman.cloud`)
       services:
         - name: excalidraw
-          port: 5000
+          port: 80
           serversTransport: traefik-excalidraw-transport
       middlewares:
         - name: security

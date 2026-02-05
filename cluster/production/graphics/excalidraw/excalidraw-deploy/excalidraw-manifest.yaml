@@ -56,7 +56,7 @@ spec:
             port: 5000
             scheme: https
           failureThreshold: 3
-          initialDelaySeconds: 20
+          initialDelaySeconds: 10
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
@@ -66,7 +66,7 @@ spec:
             port: 5000
             scheme: https
           failureThreshold: 3
-          initialDelaySeconds: 20
+          initialDelaySeconds: 10
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1

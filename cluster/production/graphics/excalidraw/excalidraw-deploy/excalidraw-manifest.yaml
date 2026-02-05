@@ -54,6 +54,7 @@ spec:
           httpGet:
             path: /
             port: 5000
+            scheme: https
           failureThreshold: 3
           initialDelaySeconds: 20
           periodSeconds: 10
@@ -63,6 +64,7 @@ spec:
           httpGet:
             path: /
             port: 5000
+            scheme: https
           failureThreshold: 3
           initialDelaySeconds: 20
           periodSeconds: 10

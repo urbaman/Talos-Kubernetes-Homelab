@@ -42,7 +42,7 @@ spec:
         app.kubernetes.io/name: draw.io
     spec:
       containers:
-      - image: docker.io/jgraph/drawio:23.3.6
+      - image: docker.io/jgraph/drawio:29.3.6
         imagePullPolicy: IfNotPresent
         name: drawio
         ports:

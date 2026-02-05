@@ -53,7 +53,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: 5000
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -62,7 +62,7 @@ spec:
         readinessProbe:
           httpGet:
             path: /
-            port: 8080
+            port: 5000
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
@@ -117,7 +117,7 @@ spec:
       match: Host(`excalidraw.urbaman.cloud`)
       services:
         - name: excalidraw
-          port: 8080
+          port: 5000
           serversTransport: traefik-excalidraw-transport
       middlewares:
         - name: security

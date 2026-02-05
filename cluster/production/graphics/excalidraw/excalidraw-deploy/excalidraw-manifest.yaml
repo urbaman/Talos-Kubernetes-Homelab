@@ -1,0 +1,129 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: excalidraw
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: excalidraw
+  namespace: excalidraw
+  labels:
+    app: excalidraw
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 5000
+  selector:
+    app: excalidraw
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: excalidraw
+  namespace: excalidraw
+  labels:
+    app: excalidraw        
+    app.kubernetes.io/name: excalidraw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: excalidraw
+  template:
+    metadata:
+      labels:
+        app: excalidraw        
+        app.kubernetes.io/name: excalidraw
+    spec:
+      containers:
+      - image: excalidraw/excalidraw:latest
+        imagePullPolicy: IfNotPresent
+        name: excalidraw
+        ports:
+        - containerPort: 5000
+        env:
+        - name: TZ
+          value: Europe/Rome
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: excalidraw-urbaman.cloud
+  namespace: excalidraw
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - excalidraw.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: excalidraw-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-excalidraw-transport
+  namespace: excalidraw
+spec:
+  serverName: excalidraw
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-excalidraw-websecure
+  namespace: excalidraw
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://excalidraw.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Excalidraw"
+    gethomepage.dev/group: Graphics
+    gethomepage.dev/icon: excalidraw.svg
+    gethomepage.dev/app: excalidraw # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Excalidraw"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`excalidraw.urbaman.cloud`)
+      services:
+        - name: excalidraw
+          port: 8080
+          serversTransport: traefik-excalidraw-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: excalidraw-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: drawio
+  name: excalidraw
   namespace: argocd
 spec:
   project: prod
   sources:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: cluster/production/graphics/draw-io/drawio-deploy
+      path: cluster/production/graphics/excalidraw/excalidraw-deploy
 #    - repoURL: https://crowdsecurity.github.io/helm-charts
 #      chart: crowdsec
 #      targetRevision: 0.22.0
@@ -24,7 +24,7 @@ spec:
 #      path: cluster/pre-production/automation/argoCD/argoCD-post-deploy
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: drawio
+    namespace: excalidraw
   syncPolicy:
 #    managedNamespaceMetadata:
 #      labels: # The labels to set on the application namespace

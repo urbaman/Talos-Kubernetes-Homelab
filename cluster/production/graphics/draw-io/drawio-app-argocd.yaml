@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: drawio
+  namespace: argocd
+spec:
+  project: prod
+  sources:
+    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+      targetRevision: HEAD
+      path: cluster/production/graphics/draw-io/drawio-deploy
+#    - repoURL: https://crowdsecurity.github.io/helm-charts
+#      chart: crowdsec
+#      targetRevision: 0.22.0
+#      helm:
+#        releaseName: crowdsec
+#        valueFiles:
+#        - $values/cluster/pre-production/security/crowdsec/crowdsec-values.yaml
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      ref: values
+#    - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
+#      targetRevision: HEAD
+#      path: cluster/pre-production/automation/argoCD/argoCD-post-deploy
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: drawio
+  syncPolicy:
+#    managedNamespaceMetadata:
+#      labels: # The labels to set on the application namespace
+#        pod-security.kubernetes.io/enforce: privileged       
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true

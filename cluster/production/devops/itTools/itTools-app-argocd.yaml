@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: cluster/production/graphics/itTools/itTools-deploy
+      path: cluster/production/devops/itTools/itTools-deploy
 #    - repoURL: https://crowdsecurity.github.io/helm-charts
 #      chart: crowdsec
 #      targetRevision: 0.22.0

@@ -69,7 +69,7 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: it-tools-urbaman.cloud
+  name: it-tools-urbaman-cloud
   namespace: it-tools
 spec:
   # Certificate will be valid for these domain names

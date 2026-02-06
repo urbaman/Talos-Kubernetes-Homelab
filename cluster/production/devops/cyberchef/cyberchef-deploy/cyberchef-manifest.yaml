@@ -69,7 +69,7 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: cyberchef-urbaman.cloud
+  name: cyberchef-urbaman-cloud
   namespace: cyberchef
 spec:
   # Certificate will be valid for these domain names

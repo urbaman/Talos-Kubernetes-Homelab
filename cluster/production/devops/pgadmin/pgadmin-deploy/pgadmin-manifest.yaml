@@ -1,0 +1,246 @@
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: pgadmin-secret-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: pgadmin-secret-config
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: pgadmin
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: pgadmin-secret-config # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: PGADMIN_CONFIG_MAIL_DEBUG # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_DEBUG # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_PASSWORD # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_PASSWORD # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_PORT # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_PORT # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_SERVER # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_SERVER # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_USERNAME # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_USERNAME # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_USE_SSL # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_USE_SSL # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_MAIL_USE_TLS # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_MAIL_USE_TLS # Key of the Vault secret to copy
+      - secretKey: PGADMIN_CONFIG_SECURITY_EMAIL_SENDER # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_CONFIG_SECURITY_EMAIL_SENDER # Key of the Vault secret to copy
+      - secretKey: PGADMIN_DEFAULT_EMAIL # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_DEFAULT_EMAIL # Key of the Vault secret to copy
+      - secretKey: PGADMIN_DEFAULT_PASSWORD # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_DEFAULT_PASSWORD # Key of the Vault secret to copy
+      - secretKey: PGADMIN_DISABLE_POSTFIX # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/apgadmin-secret-config # Path to the secret
+          metadataPolicy: None
+          property: PGADMIN_DISABLE_POSTFIX # Key of the Vault secret to copy
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pgadmin
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+  labels:
+    app: pgadmin
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: pgadmin
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pgadmin-data
+  namespace: pgadmin
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: asustornas1-nfs-csi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+  namespace: pgadmin
+  labels:
+    app: pgadmin        
+    app.kubernetes.io/name: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin        
+        app.kubernetes.io/name: pgadmin
+    spec:
+      containers:
+      - image: gdpage/pgadmin4:latest
+        imagePullPolicy: Always
+        name: pgadmin
+        ports:
+        - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: pgadmin-secret-config
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pgadmin-urbaman-cloud
+  namespace: pgadmin
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - pgadmin.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: pgadmin-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-pgadmin-transport
+  namespace: pgadmin
+spec:
+  serverName: pgadmin 
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-pgadmin-websecure
+  namespace: pgadmin
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://pgadmin.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "pgAdmin is a popular open source administration and development platform for PostgreSQL."
+    gethomepage.dev/group: DevOps
+    gethomepage.dev/icon: pgadmin.svg
+    gethomepage.dev/app: pgadmin # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "pgAdmin"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`pgadmin.urbaman.cloud`)
+      services:
+        - name: pgadmin
+          port: 80
+          serversTransport: traefik-pgadmin-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: pgadmin-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

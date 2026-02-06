@@ -192,6 +192,13 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
+        volumeMounts:
+        - mountPath: /var/lib/pgadmin
+          name: pgadmin-data
+      volumes:
+      - name: pgadmin-data
+        persistentVolumeClaim:
+          claimName: pgadmin-data
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate

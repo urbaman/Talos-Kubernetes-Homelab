@@ -24,77 +24,77 @@ spec:
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_DEBUG # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_PASSWORD # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_PASSWORD # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_PORT # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_PORT # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_SERVER # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_SERVER # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_USERNAME # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_USERNAME # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_USE_SSL # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_USE_SSL # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_MAIL_USE_TLS # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_MAIL_USE_TLS # Key of the Vault secret to copy
       - secretKey: PGADMIN_CONFIG_SECURITY_EMAIL_SENDER # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_CONFIG_SECURITY_EMAIL_SENDER # Key of the Vault secret to copy
       - secretKey: PGADMIN_DEFAULT_EMAIL # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_DEFAULT_EMAIL # Key of the Vault secret to copy
       - secretKey: PGADMIN_DEFAULT_PASSWORD # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_DEFAULT_PASSWORD # Key of the Vault secret to copy
       - secretKey: PGADMIN_DISABLE_POSTFIX # Key to create in the K8s secret
         remoteRef:
           conversionStrategy: Default
           decodingStrategy: None
-          key: talos-pve/apgadmin-secret-config # Path to the secret
+          key: talos-pve/pgadmin-secret-config # Path to the secret
           metadataPolicy: None
           property: PGADMIN_DISABLE_POSTFIX # Key of the Vault secret to copy
 ---
@@ -159,7 +159,7 @@ spec:
         app.kubernetes.io/name: pgadmin
     spec:
       containers:
-      - image: gdpage/pgadmin4:latest
+      - image: dpage/pgadmin4:latest
         imagePullPolicy: Always
         name: pgadmin
         ports:

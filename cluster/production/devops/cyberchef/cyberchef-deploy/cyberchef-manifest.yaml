@@ -42,7 +42,7 @@ spec:
         app.kubernetes.io/name: cyberchef
     spec:
       containers:
-      - image: ghcr.io/gchq/cyberchef:10.20.0
+      - image: ghcr.io/gchq/cyberchef:10.21.0
         imagePullPolicy: Always
         name: cyberchef
         ports:

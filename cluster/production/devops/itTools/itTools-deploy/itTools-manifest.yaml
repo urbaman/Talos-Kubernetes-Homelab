@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: it-toools
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: it-toools
+  namespace: it-toools
+  labels:
+    app: it-toools
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: it-toools
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: it-toools
+  namespace: it-toools
+  labels:
+    app: it-toools        
+    app.kubernetes.io/name: it-toools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: it-toools
+  template:
+    metadata:
+      labels:
+        app: it-toools        
+        app.kubernetes.io/name: it-toools
+    spec:
+      containers:
+      - image: corentinth/it-tools:latest
+        imagePullPolicy: Always
+        name: it-toools
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: it-toools-urbaman.cloud
+  namespace: it-toools
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - it-toools.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: it-toools-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-it-toools-transport
+  namespace: it-toools
+spec:
+  serverName: it-toools 
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-it-toools-websecure
+  namespace: it-toools
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://it-toools.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "It Toools"
+    gethomepage.dev/group: DevOps
+    gethomepage.dev/icon: it-toools.svg
+    gethomepage.dev/app: it-toools # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "It Toools"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`it-toools.urbaman.cloud`)
+      services:
+        - name: it-toools
+          port: 80
+          serversTransport: traefik-it-toools-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: it-toools-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

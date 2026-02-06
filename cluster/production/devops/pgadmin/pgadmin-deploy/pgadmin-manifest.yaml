@@ -169,6 +169,8 @@ spec:
       - image: dpage/pgadmin4:latest
         imagePullPolicy: Always
         name: pgadmin
+        securityContext:
+          fsGroup: 5050
         ports:
         - containerPort: 80
         envFrom:

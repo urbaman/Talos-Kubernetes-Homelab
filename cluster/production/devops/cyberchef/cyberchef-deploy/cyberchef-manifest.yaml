@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cyberchef
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cyberchef
+  namespace: cyberchef
+  labels:
+    app: cyberchef
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: cyberchef
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyberchef
+  namespace: cyberchef
+  labels:
+    app: cyberchef        
+    app.kubernetes.io/name: cyberchef
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cyberchef
+  template:
+    metadata:
+      labels:
+        app: cyberchef        
+        app.kubernetes.io/name: cyberchef
+    spec:
+      containers:
+      - image: ghcr.io/gchq/cyberchef:10.20.0
+        imagePullPolicy: Always
+        name: cyberchef
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cyberchef-urbaman.cloud
+  namespace: cyberchef
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - cyberchef.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: cyberchef-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-cyberchef-transport
+  namespace: cyberchef
+spec:
+  serverName: cyberchef 
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-cyberchef-websecure
+  namespace: cyberchef
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://cyberchef.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Cyberchef"
+    gethomepage.dev/group: DevOps
+    gethomepage.dev/icon: cyberchef.svg
+    gethomepage.dev/app: cyberchef # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Cyberchef"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`cyberchef.urbaman.cloud`)
+      services:
+        - name: cyberchef
+          port: 80
+          serversTransport: traefik-cyberchef-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: cyberchef-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

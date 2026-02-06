@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: omni-tools
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: omni-tools
+  namespace: omni-tools
+  labels:
+    app: omni-tools
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: omni-tools
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: omni-tools
+  namespace: omni-tools
+  labels:
+    app: omni-tools        
+    app.kubernetes.io/name: omni-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: omni-tools
+  template:
+    metadata:
+      labels:
+        app: omni-tools        
+        app.kubernetes.io/name: omni-tools
+    spec:
+      containers:
+      - image: iib0011/omni-tools:latest
+        imagePullPolicy: Always
+        name: omni-tools
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: omni-tools-urbaman-cloud
+  namespace: omni-tools
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - omni-tools.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: omni-tools-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-omni-tools-transport
+  namespace: omni-tools
+spec:
+  serverName: omni-tools 
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-omni-tools-websecure
+  namespace: omni-tools
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://omni-tools.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Omni Tools is a collection of web-based utilities for developers and IT professionals, offering functionalities such as encoding/decoding, data conversion, and various other tools to streamline workflows."
+    gethomepage.dev/group: DevOps
+    gethomepage.dev/icon: omni-tools.svg
+    gethomepage.dev/app: omni-tools # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Omni Tools"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`omni-tools.urbaman.cloud`)
+      services:
+        - name: omni-tools
+          port: 80
+          serversTransport: traefik-omni-tools-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: omni-tools-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

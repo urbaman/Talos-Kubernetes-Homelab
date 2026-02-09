@@ -11,7 +11,7 @@ spec:
       path: cluster/pre-production/automation/argoCD/argoCD-pre-deploy
     - repoURL: https://argoproj.github.io/argo-helm
       chart: argo-cd
-      targetRevision: 9.3.7
+      targetRevision: 9.4.1
       helm:
         releaseName: argocd
         valueFiles:

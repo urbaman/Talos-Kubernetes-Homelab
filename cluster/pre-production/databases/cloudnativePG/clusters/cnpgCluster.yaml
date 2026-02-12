@@ -63,7 +63,9 @@ spec:
     roles:
     - name: crowdsec
       login: true
+      connectionLimit: -1
       ensure: present
+      inherit: true
       superuser: false
       passwordSecret:
         name: cnpg-cluster-17-053-crowdsec

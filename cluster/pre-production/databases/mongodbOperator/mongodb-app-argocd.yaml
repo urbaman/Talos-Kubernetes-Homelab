@@ -16,7 +16,7 @@ spec:
         include: crds.yaml
     - repoURL: https://mongodb.github.io/helm-charts
       chart: mongodb-kubernetes
-      targetRevision: 1.6.1
+      targetRevision: 1.7.0
       helm:
         releaseName: mongodb-operator
         valueFiles:

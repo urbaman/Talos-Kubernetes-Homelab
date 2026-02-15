@@ -8,7 +8,7 @@ metadata:
 spec:
   members: 3
   type: ReplicaSet
-  version: "8.2.4"
+  version: "8.2.5"
   
   security:
     authentication:

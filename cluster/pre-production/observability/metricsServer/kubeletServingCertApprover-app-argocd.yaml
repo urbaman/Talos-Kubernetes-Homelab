@@ -19,7 +19,7 @@ spec:
 #      targetRevision: HEAD
 #      ref: values
     - repoURL: 'https://github.com/alex1989hu/kubelet-serving-cert-approver.git'
-      targetRevision: v0.10.2
+      targetRevision: v0.10.3
       path: deploy
       directory:
         include: '*standalone*'

@@ -13,7 +13,7 @@ spec:
       path: cluster/pre-production/observability/kubePrometheusStack/kubePrometheusStack-pre-deploy
     - repoURL: https://prometheus-community.github.io/helm-charts
       chart: kube-prometheus-stack
-      targetRevision: 81.5.0
+      targetRevision: 81.6.9
       helm:
         releaseName: kube-prometheus-stack
         valueFiles:

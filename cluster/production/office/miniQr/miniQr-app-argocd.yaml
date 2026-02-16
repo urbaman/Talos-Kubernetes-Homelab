@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: 'https://github.com/urbaman/Talos-Kubernetes-Homelab.git'
       targetRevision: HEAD
-      path: cluster/production/graphics/miniQr/miniQr-deploy
+      path: cluster/production/office/miniQr/miniQr-deploy
 #    - repoURL: https://crowdsecurity.github.io/helm-charts
 #      chart: crowdsec
 #      targetRevision: 0.22.0

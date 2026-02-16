@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: crowdsec
+  labels: # The labels to set on the application namespace
+    pod-security.kubernetes.io/enforce: privileged
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+#  labels:
+#    pod-security.kubernetes.io/enforce: privileged
+---
+apiVersion: external-secrets.io/v1
+kind: ClusterExternalSecret
+metadata:
+  name: crowdsec-keys
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  externalSecretName: crowdsec-keys
+  namespaceSelectors:
+  - matchLabels:      
+      kubernetes.io/metadata.name: crowdsec
+  refreshTime: "10s"
+  externalSecretSpec:
+    refreshInterval: "15s"
+    secretStoreRef:
+      name: openbao-backend
+      kind: ClusterSecretStore
+    target:
+      name: crowdsec-keys # K8s secret name
+      creationPolicy: Owner
+    # To get single key/value(s)
+    data:
+      - secretKey: DB_PASSWORD # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: DB_PASSWORD # Key of the Vault secret to copy
+      - secretKey: ENROLL_KEY # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: ENROLL_KEY # Key of the Vault secret to copy
+      - secretKey: BOUNCER_KEY_traefik # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: BOUNCER_KEY_traefik # Key of the Vault secret to copy
+      - secretKey: TELEGRAM_CHAT_ID # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: TELEGRAM_CHAT_ID # Key of the Vault secret to copy
+      - secretKey: TELEGRAM_BOT_TOKEN # Key to create in the K8s secret
+        remoteRef:
+          conversionStrategy: Default
+          decodingStrategy: None
+          key: talos-pve/crowdsec-keys # Path to the secret
+          metadataPolicy: None
+          property: TELEGRAM_BOT_TOKEN # Key of the Vault secret to copy

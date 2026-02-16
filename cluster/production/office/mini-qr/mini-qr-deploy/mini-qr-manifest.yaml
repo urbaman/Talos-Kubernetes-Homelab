@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mini-qr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mini-qr
+  namespace: mini-qr
+  labels:
+    app: mini-qr
+spec:
+  type: ClusterIP
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
+  ports:
+  - name: http
+    port: 8080
+  selector:
+    app: mini-qr
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mini-qr
+  namespace: mini-qr
+  labels:
+    app: mini-qr        
+    app.kubernetes.io/name: mini-qr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mini-qr
+  template:
+    metadata:
+      labels:
+        app: mini-qr        
+        app.kubernetes.io/name: mini-qr
+    spec:
+      containers:
+      - image: ghcr.io/lyqht/mini-qr:v0.26.4
+        imagePullPolicy: IfNotPresent
+        name: mini-qr
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          exec:
+            command:
+            - nc -z 127.0.0.1 8080
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        readinessProbe:
+          exec:
+            command:
+            - nc -z 127.0.0.1 8080
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mini-qr-urbaman-cloud
+  namespace: mini-qr
+spec:
+  # Certificate will be valid for these domain names
+  dnsNames:
+  - mini-qr.urbaman.cloud
+  # Reference our issuer
+  # As it's a ClusterIssuer, it can be in a different namespace
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-acme-issuer
+  # Secret that will be created with our certificate and private keys
+  secretName: mini-qr-urbaman-cloud
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: traefik-mini-qr-transport
+  namespace: mini-qr
+spec:
+  serverName: mini-qr 
+  insecureSkipVerify: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-mini-qr-websecure
+  namespace: mini-qr
+  annotations:
+    # For Homepage service discovery
+    gethomepage.dev/href: "https://mini-qr.urbaman.cloud"
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: "Mini QR"
+    gethomepage.dev/group: Office
+    gethomepage.dev/icon: sh-mini-qr.svg
+    gethomepage.dev/app: mini-qr # optional, may be needed if app.kubernetes.io/name != ingressRoute metadata.name
+    gethomepage.dev/name: "Mini QR"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`mini-qr.urbaman.cloud`)
+      services:
+        - name: mini-qr
+          port: 8080
+          serversTransport: traefik-mini-qr-transport
+      middlewares:
+        - name: security
+          namespace: traefik
+  tls:
+    secretName: mini-qr-urbaman-cloud
+    options:
+      name: tlsoptions
+      namespace: traefik

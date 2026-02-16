@@ -48,18 +48,18 @@ spec:
         ports:
         - containerPort: 8080
         livenessProbe:
-          exec:
-            command:
-            - nc -z 127.0.0.1 8080
+          httpGet:
+            path: /
+            port: 8080
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
         readinessProbe:
-          exec:
-            command:
-            - nc -z 127.0.0.1 8080
+          httpGet:
+            path: /
+            port: 8080
           failureThreshold: 3
           initialDelaySeconds: 10
           periodSeconds: 10
